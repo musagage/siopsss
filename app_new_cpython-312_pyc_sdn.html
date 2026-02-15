@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>app_new_cpython-312_pyc_sdn.html</title>
+</head>
+<body>
+  <p>
+    Ë
+
+    EYi®®  ã                   ód	  — d dl mZmZmZmZmZmZmZmZ d dl	m
+Z
+mZmZm
+Z
+mZmZ d dlmZmZ d dlmZ d dlmZ d dlZd dlmZ d dlmZ  e«         ee«      Z ej:                  d	d
+«      ej<                  d	<   dej<                  d<   d
+ej<                  d<    e«       Z e
+«       Z e jC                  e«       de _"         ejF                  ej<                  d   d¬«        ejF                  ejH                  jK                  ej<                  d   d«      d¬«        ejF                  ejH                  jK                  ej<                  d   d«      d¬«        ejF                  ejH                  jK                  ej<                  d   d«      d¬«        ejF                  ejH                  jK                  ej<                  d   d«      d¬«        G d„ de«      Z&e jN                  d„ «       Z(ejS                  d«      d„ «       Z*ejS                  ddg¬«      d„ «       Z+ejS                  ddg¬«      d „ «       Z,ejS                  d!«      ed"„ «       «       Z-ejS                  d#«      ed$„ «       «       Z.ejS                  d#dg¬«      ed%„ «       «       Z/ejS                  d&dg¬«      ed'„ «       «       Z0ejS                  d(«      ed)„ «       «       Z1ejS                  d(dg¬«      ed*„ «       «       Z2d+„ Z3ejS                  d,«      d-„ «       Z4ejS                  d.«      d/„ «       Z5ejS                  d0«      ed1„ «       «       Z6d2„ Z7ejS                  d3dg¬«      ed4„ «       «       Z8ejS                  d5«      d6„ «       Z9ejS                  d7«      d8„ «       Z:ejS                  d9dg¬«      ed:„ «       «       Z;ejS                  d;«      d<„ «       Z<ejS                  d=«      d>„ «       Z=ejS                  d?«      d@„ «       Z>ejS                  dA«      dB„ «       Z?ejS                  dC«      dD„ «       Z@ejS                  dE«      dF„ «       ZAejS                  dG«      dH„ «       ZBedIk(  rmej‡                  «       s  eDdJ«        eDdK«        eDdL«        eDdM«        eDdN«        eDdO«        eDdP«        eDdQ«        eDdM«       ej‹                  ddRdS¬T«       yy)Ué    )ÚFlaskÚrender_templateÚrequestÚredirectÚurl_forÚflashÚ	send_fileÚjsonify)ÚLoginManagerÚ	UserMixinÚ
+login_userÚlogout_userÚlogin_requiredÚcurrent_user)Úgenerate_password_hashÚcheck_password_hash)Úsecure_filename)ÚdatetimeN)Úload_dotenv)ÚDatabaseÚ
+SECRET_KEYzyour-secret-key-hereÚuploadsÚ
+UPLOAD_FOLDERl       2 ÚMAX_CONTENT_LENGTHÚhomeT©Úexist_okÚsoftwareÚlogosÚreadmeÚprofilesc                   ó   — e Zd Zd„ Zy)ÚUserc                 ó  — |d   | _         |d   | _        |d   | _        |j                  dd«      | _        |d   | _        |d   | _        |j                  dd«      | _        |j                  d	d«      | _        |j                  d
+d«      | _	        |j                  dd«      | _
+        |j                  dd«      | _        |j                  d
+d«      | _        |j                  dd«      | _
+        |j                  dd«      | _        y )NÚidÚ	full_nameÚusernameÚemailÚ Ú
+password_hashÚ	user_typeÚ
+created_atÚprofile_pictureÚphoneÚsexÚpolitical_viewsÚ	portfolioÚhobbiesÚadditional_info)r%   r&   r'   Úgetr(   r*   r+   r,   r-   r.   r/   r0   r1   r2   r3   )ÚselfÚ	user_datas     úC:\xampp\htdocs\SDN\app_new.pyÚ__init__z
+User.__init__    sæ   € Ø˜D‘/ˆŒØ" ;Ñ/ˆŒØ! *Ñ-ˆŒ
+Ø—]‘] 7¨BÓ/ˆŒ
+Ø& Ñ7ˆÔØ" ;Ñ/ˆŒØ#Ÿ-™-¨°bÓ9ˆŒØ(Ÿ}™}Ð->ÀÓCˆÔØ—]‘] 7¨BÓ/ˆŒ
+Ø—=‘= ¨Ó+ˆŒØ(Ÿ}™}Ð->ÀÓCˆÔØ"Ÿ™ {°BÓ7ˆŒØ —}‘} Y°Ó3ˆŒØ(Ÿ}™}Ð->ÀÓCˆÕó    N)Ú__name__Ú
+__module__Ú__qualname__r8   © r9   r7   r#   r#      s   „ óDr9   r#   c                 óH   — t         j                  | «      }|rt        |«      S y )N)ÚdbÚget_user_by_idr#   )Úuser_idr6   s     r7   Ú	load_userrB   0   s"   € ä×!Ñ! 'Ó*€IÙÜI‹ÐØr9   ú/c                  óÚ   — 	 t         j                  d«      } | D ]  }t         j                  |d   «      |d<   Œ 	 t        d| ¬«      S # t        $ r}t	        d|› «       g } Y d }~Œ+d }~ww xY w)Né   rA   Ú	publisherzError getting latest software: z	home.html)Úlatest_software)r?   Úget_latest_softwarer@   Ú	ExceptionÚprintr   )rG   r   Úes      r7   r   r   8   sx   € ðÜ×0Ñ0°Ó3ˆà'ò 	KˆHÜ$&×$5Ñ$5°h¸yÑ6IÓ$JˆH[Ò!ñ	Kô ˜;¸ÔHÐHøô	 ò Ü
+Ð/°¨sÐ3Ô4Øûðús   ‚7A Á	A*ÁA%Á%A*z	/registerÚPOST)Úmethodsc                  óî  — t         j                  j                  d«      } t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }t        j	                  |«      r t        dd«       t
+        t        d«      «      S t        j                  |«      r t        d	d«       t
+        t        d«      «      S 	 t        j                  | ||t        |«      |«      }t        d
+d«       t
+        t        d«      «      S # t        $ r"}t        dt        |«      › d«       Y d }~Œ:d }~ww xY w)
+Nr&   r'   r(   Úpasswordr+   zUsername already exists!Úerrorr   zEmail already registered!z&Registration successful! Please login.ÚsuccesszRegistration failed: )
+r   Úformr4   r?   Úfind_user_by_usernamer   r   r   Úfind_user_by_emailÚcreate_userr   rI   Ústr)r&   r'   r(   rO   r+   r6   rK   s          r7   ÚregisterrW   E   s"  € ä—‘× Ñ  Ó-€IÜ|‰|×Ñ 
+Ó+€HÜL‰L×Ñ˜WÓ%€EÜ|‰|×Ñ 
+Ó+€HÜ—‘× Ñ  Ó-€Iô 
+×Ñ Ô)Ü
+Ð(¨'Ô2Üœ ›Ó(Ð(ä	×Ñ˜UÔ#Ü
+Ð)¨7Ô3Üœ ›Ó(Ð(ð9ä—N‘N 9¨h¸Ô?UÐV^Ó?_ÐajÓkˆ	Ü
+Ð6¸	ÔBô ”G˜F“OÓ$Ð$øô ò 9Ü
+Ð%¤c¨!£f XÐ.°×8Ñ8ûð9ús   Ä.E	 Å		E4ÅE/Å/E4z/loginc                  ó¾  — t         j                  j                  d«      } t         j                  j                  d«      }	 t        j	                  | «      }|r9t        |d   |«      r*t
+        |«      }t        |«       t        t        d«      «      S t        dd«       	 t        t        d«      «      S # t        $ r"}t        dt        |«      › d«       Y d }~Œ:d }~ww xY w)	Nr'   rO   r*   Úupload_softwarezInvalid credentials!rP   zLogin failed: r   )
+r   rR   r4   r?   Úfind_user_by_loginr   r#   r
+   r   r   r   rI   rV   )r'   rO   r6   ÚuserrK   s        r7   Úloginr\   _   s¹   € ä|‰|×Ñ 
+Ó+€HÜ|‰|×Ñ 
+Ó+€Hð
+2Ü×)Ñ)¨(Ó3ˆ	áÔ,¨Y°Ñ-GÈÔRÜ˜	“?ˆDÜtÔÜœGÐ$5Ó6Ó7Ð7äÐ(¨'Õ2ô ”G˜F“OÓ$Ð$øô ò 2Ü
+œs 1›v˜hÐ'¨×1Ñ1ûð2ús   Á AB1 ÂB1 Â1	CÂ:CÃCz/logoutc                  ó>   — t        «        t        t        d«      «      S )Nr   )r   r   r   r=   r9   r7   Úlogoutr^   r   s   € ô „MÜ”G˜F“OÓ$Ð$r9   z/profilec                  óî   — t         j                  j                  dd«      j                  «       dk(  } t        j                  t        j                  «      }|rt        |«      }nt        }t        d|| ¬«      S )NÚeditÚfalseÚtruezprofile.html)r[   Úediting)
+r   Úargsr4   Úlowerr?   r@   r   r%   r#   r   )rc   Úfresh_user_dataÚuser_objs      r7   Úprofilerh   x   s_   € ô l‰l×Ñ˜v wÓ/×5Ñ5Ó7¸6ÑA€Gô ×'Ñ'¬¯©Ó8€OÙÜ˜Ó(‰äˆä˜>°À'ÔJÐJr9   c                  ó„  — 	 t         j                  j                  dd«      j                  «       } t         j                  j                  dd«      j                  «       }t         j                  j                  dd«      j                  «       }t         j                  j                  dd«      j                  «       }t         j                  j                  dd«      }t         j                  j                  dd«      }t         j                  j                  dd«      j                  «       }t         j                  j                  d	d«      j                  «       }t         j                  j                  d
+d«      j                  «       }t        j
+                  }	dt         j                  v rPt         j                  d   j                  r2t         j                  d   }
+h d£}d
+|
+j                  j                  d
+«      d   j                  «       z   }||vr"t        dd«       t        t        dd¬«      «      S t        j                  j                  t         j"                  d   dt        j$                  «      }
+t        j&                  |
+d¬«       |	r5t        j                  j)                  |	«      r	 t        j*                  |	«       d|› }t        j                  j                  |
+|«      }|
+j-                  |«       |}	| |||||||||	dœ
+}|j/                  «       D ci c]  \  }}|dk7  sŒ||“Œ }}}t0        j3                  t        j$                  |«       t        dd«       t        t        d«      «      S #  Y Œ¶xY wc c}}w # t4        $ r8}t        dt7        |«      › d«       t        t        dd¬«      «      cY d }~S d }~ww xY w)Nr&   r)   r'   r(   r.   r/   r0   r1   r2   r3   r-   >   ú.bmpú.gifú.jpgú.pngú.jpegú.webpú.éÿÿÿÿzEInvalid file type. Only image files are allowed for profile pictures.rP   rh   rb   ©r`   r   r!   Tr   )
+r&   r'   r(   r.   r/   r0   r1   r2   r3   r-   zProfile updated successfully!rQ   zError updating profile: )r   rR   r4   Ústripr   r-   ÚfilesÚfilenameÚsplitre   r   r   r   ÚosÚpathÚjoinÚappÚconfigr%   ÚmakedirsÚexistsÚremoveÚsaveÚitemsr?   Úupdate_userrI   rV   )r&   r'   r(   r.   r/   r0   r1   r2   r3   r-   Úprofile_pic_fileÚallowed_extensionsÚfile_extensionÚuser_profile_dirÚprofile_pic_filenameÚprofile_picture_pathÚupdate_dataÚkÚvrK   s                       r7   Úupdate_profiler‹   †   s  € ðI9ä—L‘L×$Ñ$ [°"Ó5×;Ñ;Ó=ˆ	Ü—<‘<×#Ñ# J°Ó3×9Ñ9Ó;ˆÜ—‘× Ñ  ¨"Ó-×3Ñ3Ó5ˆÜ—‘× Ñ  ¨"Ó-×3Ñ3Ó5ˆÜl‰l×Ñ˜u bÓ)ˆÜ!Ÿ,™,×*Ñ*Ð+<¸bÓAˆÜ—L‘L×$Ñ$ [°"Ó5×;Ñ;Ó=ˆ	Ü—,‘,×"Ñ" 9¨bÓ1×7Ñ7Ó9ˆÜ!Ÿ,™,×*Ñ*Ð+<¸bÓA×GÑGÓIˆô '×6Ñ6ˆð ¤§
+¡
+Ò-´'·-±-Ð@QÑ2R×2[Ó2[Ü&Ÿ}™}Ð->Ñ?Ðò "TÐØ Ð#3×#<Ñ#<×#BÑ#BÀ3Ó#GÈÑ#K×#QÑ#QÓ#SÑSˆNàÐ%7Ñ7ÜÐ]Ð_fÔgÜ¤¨	¸Ô ?Ó@Ð@ô  "Ÿw™wŸ|™|¬C¯J©J°Ñ,GÈÔUa×UdÑUdÓeÐÜK‰KÐ(°4Õ8ñ ¤2§7¡7§>¡>°/Ô#BðÜ—I‘I˜oÔ.ð
+ &5°^Ð4DÐ#EÐ Ü#%§7¡7§<¡<Ð0@ÐBVÓ#WÐ ð 
+×!Ñ!Ð"6Ô7ð 3ˆOð #Ø ØØØØ.Ø"ØØ.Ø.ñ
+ˆð )4×(9Ñ(9Ó(;×G¡  1¸qÀB»wq˜!‘tÐGˆÑGô 	‰”|—‘¨Ô4ä
+Ð-¨yÔ9Üœ 	Ó*Ó+Ð+øðEÙüó6 Høô ò 9Ü
+Ð(¬¨Q«¨Ð1°7Ô;Üœ 	°Ô7Ó8Õ8ûð9úsQ   ‚H.M> È1A8M> Ê*M1 Ê?AM> Ì
+M8Ì%M8Ì*AM> Í1M5Í3M> Í>	N?Î-N:Î4N?Î:N?z/delete_profile_picturec                  ó¸  — 	 t         j                  } | r5t        j                  j	                  | «      r	 t        j
+                  | «       t        j                  t         j                  ddi«       t        dd«       t        t        dd¬«      «      S #  Y ŒLxY w# t        $ r8}t        dt        |«      › d	«       t        t        dd¬«      «      cY d }~S d }~ww xY w)
+Nr-   r)   z%Profile picture deleted successfully!rQ   rh   rb   rr   z Error deleting profile picture: rP   )r   r-   rw   rx   r}   r~   r?   r   r%   r   r   r   rI   rV   )Úprofile_pic_pathrK   s     r7   Údelete_profile_picturerŽ   Ô   s´   € ð9ä'×7Ñ7Ðñ ¤§¡§¡Ð/?Ô @ð
+Ü—	‘	Ð*Ô+ô
+ 	‰”|—‘Ð):¸BÐ(?Ô@ä
+Ð5°yÔAÜœ 	°Ô7Ó8Ð8øð
+Ùûô ò 9Ü
+Ð0´°Q³°Ð9¸7ÔCÜœ 	°Ô7Ó8Õ8ûð9ús5   ‚1B ´B Á	AB ÂBÂB Â	CÂ!-CÃCÃCz/upload_softwarec                  ó   — t        d«      S )Nzupload_software.html)r   r=   r9   r7   rY   rY   ì   s   € ô Ð1Ó2Ð2r9   c                  ót   — t         j                  j                  dd«      } | dk(  r
+t        «       S t	        «       S )NÚupload_modeÚnew_softwareÚnew_version)r   rR   r4   Úhandle_version_uploadÚhandle_new_software_upload)r‘   s    r7   Úupload_software_postr–   ñ   s4   € ô —,‘,×"Ñ" =°.ÓA€KàmÒ#Ü$Ó&Ð&ä)Ó+Ð+r9   c            
+      ó¸  — t         j                  j                  d«      } t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }t         j                  j                  d«      }	 d }d	t         j                  v rÏt         j                  d	   j                  r²t         j                  d	   }	t        |	j                  «      }
+t        j                  j                  t        j                  d
+   dt        j                  «       j                  d«      › d
+|
+› «      }|	j                  |«       t        j                  j                  |d¬«      }d }dt         j                  v rÏt         j                  d   j                  r²t         j                  d   }t        |j                  «      }
+t        j                  j                  t        j                  d
+   dt        j                  «       j                  d«      › d
+|
+› «      }|j                  |«       t        j                  j                  |d¬«      }t         j#                  | ||||t$        j&                  |||||¬«      }t         j                  j)                  d«      }h d£}t+        |«      D ]Z  \  }}|j                  sŒd|j                  j-                  d«      d   j/                  «       z   }||vrt1        d|j                  › dd«       Œbt        |j                  «      }t        j                  j                  t        j                  d
+   dt        j                  «       j                  d«      › d
+|› «      }|j                  |«       t        j                  j3                  |«      }t5        d|› «       t         j                  j                  d|› d«      }t         j                  j                  d|› d«      }t         j                  j                  d|› |j7                  dd«      «      }|s.|j7                  dd«      }t5        d |j8                  › d!|› «       nt5        d"|› d#|j8                  › «       h d$£}||vr;t5        d%|› d&«       |j7                  dd«      }t1        d'|j                  › d(d)«       t         j;                  |d*   ||j                  |t        j                  j=                  |«      |||¬+«       Œ] t1        d,d-«       t?        tA        d.«      «      S # tB        $ r6}t1        d/tE        |«      › d«       t?        tA        d0«      «      cY d }~S d }~ww xY w)1NÚnameÚdescriptionÚcategoryÚ	target_osÚversion_updatesÚsystem_requirementsÚadditional_notesÚadditional_linksÚlogor   r   ú
+%Y%m%d_%H%M%SÚ_rp   ©Ústartr    )r˜   r™   rš   r›   rœ   rA   Ú	logo_pathÚreadme_pathr   rž   rŸ   Úsoftware_files¾   ú.exeú.rarú.ziprq   úInvalid file type: z.. Only .exe, .zip, and .rar files are allowed.rP   r   zFile saved at: Úfile_os_ÚwindowsÚ
+file_arch_Úx64Ú
+file_type_r)   úNo file type selected for ú, using extension: úUser selected file type: ú for >   ÚexeÚrarÚzipúInvalid file type ú, defaulting to extensionzInvalid file type selected for z, using extension-based typeÚwarningr%   )Úsoftware_idru   Úoriginal_filenameÚ	file_pathÚ	file_sizeÚos_typeÚarchitectureÚ	file_typezSoftware uploaded successfully!rQ   ÚstorezUpload failed: rY   )#r   rR   r4   rt   ru   r   rw   rx   ry   rz   r{   r   ÚnowÚstrftimer   Úrelpathr?   Úcreate_softwarer   r%   ÚgetlistÚ	enumeraterv   re   r   ÚabspathrJ   Úreplacer˜   Úcreate_software_fileÚgetsizer   r   rI   rV   )r˜   r™   rš   r›   rœ   r   rž   rŸ   r¥   r    Ú
+logo_filenamer¦   r    Úreadme_filenameÚ
+software_datart   rƒ   ÚiÚfiler„   ru   r¾   Úabsolute_file_pathrÀ   rÁ   rÂ   Ú
+allowed_typesrK   s                               r7   r•   r•   û   s  € Ü<‰<×Ñ˜FÓ#€DÜ—,‘,×"Ñ" =Ó1€KÜ|‰|×Ñ 
+Ó+€HÜ—‘× Ñ  Ó-€IÜ—l‘l×&Ñ&Ð'8Ó9€OÜ!Ÿ,™,×*Ñ*Ð+@ÓAÐÜ—|‘|×'Ñ'Ð(:Ó;ÐÜ—|‘|×'Ñ'Ð(:Ó;ÐðY4àˆ	Ø”W—]‘]Ñ"¤w§}¡}°VÑ'<×'EÒ'EÜ—=‘= Ñ(ˆDÜ+¨D¯M©MÓ:ˆMÜŸ™Ÿ™¤S§Z¡Z°Ñ%@À'ÌhÏlÉlËn×NeÑNeÐfuÓNvÐMwÐwxð  zGð  yHð  LIó  JˆIØI‰IiÔ ÜŸ™Ÿ™¨	¸˜Ó=ˆIð ˆØ”w—}‘}Ñ$¬¯©°xÑ)@×)IÒ)IÜ—]‘] 8Ñ,ˆFÜ-¨f¯o©oÓ>ˆOÜŸ'™'Ÿ,™,¤s§z¡z°/Ñ'BÀHÔQY×Q]ÑQ]ÓQ_×QhÑQhÐixÓQyÐPzÐz{ð  }Lð  |Mð  ONó  OˆKØK‰K˜Ô$ÜŸ'™'Ÿ/™/¨+¸S˜/ÓAˆKô ×*Ñ*ØØ#ØØØ+Ü —O‘OØØ#Ø 3Ø-Ø-ð +ó 
+ˆ
+ô —
+‘
+×%Ñ%Ð&6Ó7ˆÚ5Ðä  Ó'ó ,	‰GˆAˆtØ}‹}à!$ t§}¡}×':Ñ':¸3Ó'?ÀÑ'C×'IÑ'IÓ'KÑ!KØ!Ð);Ñ;ÜÐ/°·
+±
+¨Ð>lÐmÐovÔwØä*¨4¯=©=Ó9ÜŸG™GŸL™L¬¯©°OÑ)DÀjÔU]×UaÑUaÓUc×UlÑUlÐm|ÓU}ÐT~Ð~ð  AIð  @Jð  SKó  L	Ø—	‘	˜)Ô$ô &(§W¡W§_¡_°YÓ%?Ð"Ü˜Ð(:Ð';Ð<Ô=ô "Ÿ,™,×*Ñ*¨X°a°S¨>¸9ÓEÜ&Ÿ|™|×/Ñ/°*¸Q¸CÐ0@À%ÓHÜ#ŸL™L×,Ñ,¨z¸!¸Ð-=¸~×?UÑ?UÐVYÐ[]Ó?^Ó_	ñ !Ø .× 6Ñ 6°s¸BÓ ?IÜÐ6°t·y±y°kÐATÐU^ÐT_Ð`ÕaäÐ5°i°[ÀÀdÇiÁiÀ[ÐQÔRò !6
+Ø MÑ1ÜÐ.¨y¨kÐ9RÐSÔTØ .× 6Ñ 6°s¸BÓ ?IÜÐ;¸D¿M¹M¸?ÐJfÐgÐirÔsä×'Ñ'Ø -¨dÑ 3Ø%Ø&*§m¡mØ0Ü Ÿg™gŸo™o¨iÓ8Ø#Ø!-Ø'ð (ö 	ðG,	ô\ 	Ð/°Ô;Üœ Ó(Ó)Ð)øäò 4Ü
+¤ A£˜xÐ(¨'Ô2ÜœÐ 1Ó2Ó3Õ3ûð4ús&   Ã:H5V Ì0I)V Ö	WÖ#+W×W×Wz/storec                  óL  — t         j                  j                  dd«      } 	 | rt        j	                  | «      }nt        j                  d«      }|D ]  }t        j
+                  |d   «      |d<   Œ 	 t        d|| ¬«      S # t        $ r}t        d|› «       g }Y d }~Œ,d }~ww xY w)	NÚqr)   r   rA   rF   zError in store: z
+store.html©Ú
+software_listÚquery©
+r   rd   r4   r?   Úsearch_software_by_nameÚfindr@   rI   rJ   r   )rÙ   rØ   r   rK   s       r7   rÃ   rÃ   `  s£   € äL‰L×Ñ˜S "Ó%€EðÙÜ×6Ñ6°uÓ=‰MäŸG™G JÓ/ˆMð &ò 	KˆHÜ$&×$5Ñ$5°h¸yÑ6IÓ$JˆH[Ò!ñ	Kô ˜<°}ÈEÔRÐRøô	 ò Ü
+Ð   Ð$Ô%Ø
+ûðús   ¢AB  Â 	B#Â	BÂB#z
+/applicationsc                  óÈ  — t         j                  j                  dd«      } t         j                  j                  dd«      }	 | rt        j	                  | «      }n3|dk7  rt        j                  dd|i«      }nt        j                  d«      }|D ]  }t        j
+                  |d   «      |d<   Œ 	 t        d	|| ¬
+«      S # t        $ r}t        d|› «       g }Y d }~Œ,d }~ww xY w)NrÖ   r)   rš   Úallr   rA   rF   zError in applications: zapplications.htmlr×   rÚ   )rÙ   rš   rØ   r   rK   s        r7   Úapplicationsrß   s  sØ   € äL‰L×Ñ˜S "Ó%€EÜ|‰|×Ñ 
+¨EÓ2€HðÙÜ×6Ñ6°uÓ=‰MØ
+˜Ò
+ÜŸG™G J°¸XÐ0FÓG‰MäŸG™G JÓ/ˆMð &ò 	KˆHÜ$&×$5Ñ$5°h¸yÑ6IÓ$JˆH[Ò!ñ	Kô Ð.¸mÐSXÔYÐYøô	 ò Ü
+Ð'¨ sÐ+Ô,Ø
+ûðús   ÁA-B> Â>	C!ÃCÃC!z/api/user/softwarec                  ó¼  — 	 t        dt        j                  › «       t        j	                  t        j                  «      } t        d| › «       | D ]Œ  }t        d|j                  dd«      › d|j                  dd«      › d	|j                  d
+d«      › «       |j                  d«      dk(  s$|j                  dd
+«      j
+                  «       dk(  sŒt        d|› «       ŒŽ | D cg c]  }|j                  d
+«      dk(  sŒ|‘Œ }}t        d|› «       t        | «      S c c}w # t        $ r0}t        d|› «       t        dt        |«      i«      dfcY d }~S d }~ww xY w)NzGetting software for user: zFound software: z
+Software: r˜   ÚUnknownz - ID: r%   zNo IDz - version_updates: rœ   zNot setÚ
+postgresqlr)   zPostgreSQL details: ÚyeszVersion enabled software: zError in get_user_software: rP   éô  )
+rJ   r   r%   r?   Úget_software_by_user_idr4   re   r
+   rI   rV   )Ú
+user_softwarer   ÚsÚversion_enabledrK   s        r7   Úget_user_softwareré   ‰  s{  € ð/Ü
+Ð+¬L¯O©OÐ+<Ð=Ô>Ü×2Ñ2´<·?±?ÓCˆ
+Ü
+Ð   Ð0Ô1ð &ò 	9ˆHÜJ˜xŸ|™|¨F°IÓ>Ð?¸wÀxÇ|Á|ÐTXÐZaÓGbÐFcÐcwð  yA÷  yEñ  yEð  FWð  Ybó  ycð  xdð  eô  
+fØ|‰|˜FÓ# |Ò3°x·|±|ÀFÈBÓ7O×7UÑ7UÓ7WÐ[gÓ7gÜÐ,¨X¨JÐ7Õ8ð	9ð '4ÖY °q·u±uÐ=NÓ7OÐSXÓ7Xš1ÐYˆÐYÜ
+Ð*¨?Ð*;Ð<Ô=ä}Ó%Ð%ùò Zøô ò /Ü
+Ð,¨Q¨CÐ0Ô1Ü˜¤ Q£Ð(Ó)¨3Ð.Õ.ûð/ús<   ‚C
+D" ÃD" Ã$DÃ>DÄD" ÄD" Ä"	EÄ+%EÅEÅEc                  óæ  — 	 t         j                  j                  d«      } t         j                  j                  d«      }t         j                  j                  d«      }| r|st        dddœ«      S t        j                  | «      }|r|d   t        j                  k7  rt        dddœ«      S |j                  d	«      d
+k7  rt        dddœ«      S t        j                  | «      }|D ],  }|j                  d«      sŒt        j                  |d
+   «       Œ. g }t         j                  j                  d«      }h d£}t        |«      D ]§  \  }	}
+|
+j                  sŒd|
+j                  j                  d«      d   j                  «       z   }||vrt!        d|
+j                  › «       Œ`t#        |
+j                  «      }t$        j&                  j)                  t*        j,                  d   ddt/        j0                  «       j3                  d«      › d|› «      }
+|
+j5                  |
+«       t$        j&                  j7                  |
+«      }t!        d|› «       t         j                  j                  d|	› d«      }t         j                  j                  d|	› d«      }t         j                  j                  d|	› |j9                  dd«      «      }|s.|j9                  dd«      }t!        d|
+j:                  › d |› «       nt!        d!|› d"|
+j:                  › «       h d#£}|r&||vr"t!        d$|› d%«       |j9                  dd«      }nK|s.t!        d|
+j:                  › d |› «       |j9                  dd«      }nt!        d!|› d"|
+j:                  › «       |j=                  ||
+j                  |t$        j&                  j?                  |
+«      |||t/        j@                  «       jC                  «       d&œ«       Œª | |||t/        j@                  «       jC                  «       d'd(œ}t        jE                  |«       t        d'tG        d)| ¬*«      d+œ«      S # tH        $ r!}t        dtK        |«      dœ«      cY d }~S d }~ww xY w),NÚexisting_softwareÚversion_numberÚversion_descriptionFz2Software selection and version number are required©rQ   rP   rA   ú#Software not found or access deniedrœ   rã   z1Version updates are not enabled for this softwareÚis_newr%   r§   r¨   rp   rq   zSkipping invalid file type: r   r   Úversion_r¡   r¢   zVersion file saved at: r­   r®   r¯   r°   r±   r)   r²   r³   r´   rµ   >   r¶   r·   r¸   r¹   rº   )ru   r½   r¾   r¿   rÀ   rÁ   rÂ   Úuploaded_atT©r¼   rì   r™   rt   rò   rð   Údisplay_results©r¼   )rQ   r   )&r   rR   r4   r
+   r?   Úget_software_by_idr   r%   Úget_versions_by_software_idÚmark_version_as_oldrt   rÈ   rÉ   ru   rv   re   rJ   r   rw   rx   ry   rz   r{   r   rÄ   rÅ   r   rÊ   rË   r˜   ÚappendrÍ   ÚutcnowÚ	isoformatÚcreate_versionr   rI   rV   )r¼   rì   rí   r   ÚversionsÚversionÚ
+version_filesrt   rƒ   rÑ   rÒ   r„   ru   r¾   rÓ   rÀ   rÁ   rÂ   rÔ   Úversion_datarK   s                        r7   r”   r”      s"  € ð\<Ü—l‘l×&Ñ&Ð':Ó;ˆÜ Ÿ™×)Ñ)Ð*:Ó;ˆÜ%Ÿl™l×.Ñ.Ð/DÓEÐá¡.Ü uÐ7kÑlÓmÐmô ×(Ñ(¨Ó5ˆÙ˜8 IÑ.´,·/±/ÒAÜ uÐ7\Ñ]Ó^Ð^à<‰<Ð)Ó*¨eÒ3Ü uÐ7jÑkÓlÐlô ×1Ñ1°+Ó>ˆØò 	6ˆGØ{‰{˜8Õ$Ü×&Ñ& w¨t¡}Õ5ð	6ð
+ ˆ
+Ü—
+‘
+×%Ñ%Ð&6Ó7ˆÚ5Ðä  Ó'ó 0	‰GˆAˆtØ}‹}Ø!$ t§}¡}×':Ñ':¸3Ó'?ÀÑ'C×'IÑ'IÓ'KÑ!KØ!Ð);Ñ;äÐ8¸¿¹¸ÐHÔIØä*¨4¯=©=Ó9ÜŸG™GŸL™L¬¯©°OÑ)DÀjÐT\Ô]e×]iÑ]iÓ]k×]tÑ]tð  vEó  ^Fð  ]Gð  GHð  IQð  HRð  SSó  T	Ø—	‘	˜)Ô$ô &(§W¡W§_¡_°YÓ%?Ð"ÜÐ/Ð0BÐ/CÐDÔEô "Ÿ,™,×*Ñ*¨X°a°S¨>¸9ÓEÜ&Ÿ|™|×/Ñ/°*¸Q¸CÐ0@À%ÓHÜ#ŸL™L×,Ñ,¨z¸!¸Ð-=¸~×?UÑ?UÐVYÐ[]Ó?^Ó_	ñ !Ø .× 6Ñ 6°s¸BÓ ?IÜÐ6°t·y±y°kÐATÐU^ÐT_Ð`ÕaäÐ5°i°[ÀÀdÇiÁiÀ[ÐQÔRò !6
+Ù °-Ñ!?ÜÐ.¨y¨kÐ9RÐSÔTØ .× 6Ñ 6°s¸BÓ ?‘IÙ"ÜÐ6°t·y±y°kÐATÐU^ÐT_Ð`ÔaØ .× 6Ñ 6°s¸BÓ ?‘IäÐ5°i°[ÀÀdÇiÁiÀ[ÐQÔRà×$Ñ$Ø (Ø)-¯©Ø!3Ü!#§¡§¡°Ó!;Ø&Ø$0Ø!*Ü#+§?¡?Ó#4×#>Ñ#>Ó#@ñ	&ö 	ðO0	ðh 'Ø,Ø.Ø"Ü#Ÿ?™?Ó,×6Ñ6Ó8Øñ
+
+ˆô 	×Ñ˜,Ô'ä 4´WÐ=NÐ\gÔ5hÑiÓjÐjøäò <Ü 5´3°q³6Ñ:Ó;Õ;ûð<ús>   ‚A.Q Á1:Q Â,!Q Ã+Q Ã:AQ ÅK-Q Ñ	Q0ÑQ+Ñ%Q0Ñ+Q0z/upload_versionc            	      óJ  — 	 t         j                  j                  d«      } t         j                  j                  d«      }t         j                  j                  d«      }t        j	                  | «      }|r|d   t
+        j                  k7  rt        dddœ«      S g }t         j                  j                  d«      }h d	£}t        |«      D ]_  \  }}|j                  sŒd
+|j                  j                  d
+«      d   j                  «       z   }	|	|vrt        dd|j                  › dœ«      c S t        |j                  «      }
+t        j                   j#                  t$        j&                  d
+   ddt)        j*                  «       j-                  d«      › d|
+› «      }|j/                  |«       |j1                  |
+|j                  t        j                   j3                  |d
+¬«      t        j                   j5                  |«      t)        j6                  «       j9                  «       dœ«       Œb | |||t)        j6                  «       j9                  «       ddœ}t        j;                  |«       t        ddi«      S # t<        $ r!}
+t        dt?        |
+«      dœ«      cY d }
+~
+S d }
+~
+ww xY w)Nr¼   rì   rí   rA   Frï   rî   rÿ   r¨   rp   rq   r¬   r   r   rñ   r¡   r¢   r£   )ru   r½   r¾   r¿   rò   Tró   rQ   ) r   rR   r4   r?   rö   r   r%   r
+   rt   rÈ   rÉ   ru   rv   re   r   rw   rx   ry   rz   r{   r   rÄ   rÅ   r   rù   rÆ   rÍ   rú   rû   rü   rI   rV   )r¼   rì   rí   r   rÿ   rt   rƒ   rÑ   rÒ   r„   ru   r¾   r   rK   s                 r7   Úupload_versionr  ÿ  sO  € ð1<Ü—l‘l×&Ñ& }Ó5ˆÜ Ÿ™×)Ñ)Ð*:Ó;ˆÜ%Ÿl™l×.Ñ.Ð/DÓEÐô ×(Ñ(¨Ó5ˆÙ˜8 IÑ.´,·/±/ÒAÜ uÐ7\Ñ]Ó^Ð^ð ˆ
+Ü—
+‘
+×%Ñ% oÓ6ˆÚ5Ðä  Ó'ó 	‰GˆAˆtØ}‹}Ø!$ t§}¡}×':Ñ':¸3Ó'?ÀÑ'C×'IÑ'IÓ'KÑ!KØ!Ð);Ñ;Ü"¨uÐATÐUY×UbÑUbÐTcÐ?dÑ#eÓfÒfä*¨4¯=©=Ó9ÜŸG™GŸL™L¬¯©°OÑ)DÀjÐT\Ô]e×]iÑ]iÓ]k×]tÑ]tð  vEó  ^Fð  ]Gð  GHð  IQð  HRð  SSó  T	Ø—	‘	˜)Ô$à×$Ñ$Ø (Ø)-¯©Ü!#§¡§¡°À# Ó!FÜ!#§¡§¡°Ó!;Ü#+§?¡?Ó#4×#>Ñ#>Ó#@ñ&ö ð	ð( 'Ø,Ø.Ø"Ü#Ÿ?™?Ó,×6Ñ6Ó8Øñ
+
+ˆô 	×Ñ˜,Ô'ä˜	 4Ð(Ó)Ð)øäò <Ü 5´3°q³6Ñ:Ó;Õ;ûð<ús3   ‚BI8 ÂAI8 ÃAI8 Ä.E	I8 É8	J"ÊJÊJ"ÊJ"z$/api/software/<software_id>/versionsc                 ó`  — 	 t        d| › «       t        j                  | «      }|st        d| › «       t        ddi«      dfS t        j	                  | «      }t        d|› «       t        d|i«      S # t
+        $ r0}t        d|› «       t        dt
+        |«      i«      d	fcY d }~S d }~ww xY w)
+Nz"Getting versions for software_id: zSoftware not found: rP   zSoftware not foundé”  úFound versions: rý   z Error in get_software_versions: rä   )rJ   r?   rö   r
+   r÷   rI   rV   )r¼   r   rý   rK   s       r7   Úget_software_versionsr  5  s¹   € ð
+/Ü
+Ð2°;°-Ð@ÔAÜ×(Ñ(¨Ó5ˆÙÜÐ(¨¨
+Ð6Ô7Ü˜GÐ%9Ð:Ó;¸SÐ@Ð@ä×1Ñ1°+Ó>ˆÜ
+Ð   
+Ð+Ô,Ü˜
+ HÐ-Ó.Ð.øäò /Ü
+Ð0°°Ð4Ô5Ü˜¤ Q£Ð(Ó)¨3Ð.Õ.ûð/ús$   ‚AA4 Á/A4 Á4	B-Á=%B(Â"B-Â(B-z/software/<software_id>c           	      óL  — 	 t        d| › «       t        j                  | «      }|s+t        d«       t        dd«       t	        t        d«      «      S t        d|j
+                  dd«      › «       t        j                  |d   «      |d	<   t        j                  | «      |d
+<   t        d|d
+   rt        |d
+   «      nd› «       |j
+                  d
+«      dk(  rTt        d«       t        j                  | «      }t        dt        |«      › d«       |d
+   r|d
+   j                  «       ng }|D ]É  }t        d|j
+                  dd«      › «       |j
+                  d
+g «      D ]”  }t        d|j
+                  dd«      › «       |d   |d<   |j
+                  dd«      |d<   |j
+                  d«      |d<   |j
+                  dd«      |d<   |d   › d|d   › |d<   d|d<   |d   |d <   |j                  |«       Œ– ŒË |j                  d!„ d¬"«       ||d
+<   t        d#t        |d
+   «      › «       nt        d$«       t        d%|d
+   › «       t!        d'|¬(«      S # t        $ rD}t        d&|› «       t        d&t        |«      › d«       t	        t        d«      «      cY d }~S d }~ww xY w))NzLoading software preview for: úSoftware not found!rP   rÃ   zSoftware found: r˜   rá   rA   rF   rt   zOriginal files found: r   rœ   rã   z0Version updates enabled, looking for versions...zFound z	 versionszProcessing version: rì   zAdding version file: ru   rð   Frò   r™   r)   rí   r%   ú-TÚis_version_fileÚ
+version_idc                 ó&   — | j                  dd«      S )Nrò   r)   )r4   )Úxs    r7   ú<lambda>z!display_results.<locals>.<lambda>n  s   € ¨¯©¨}¸bÓ)A€ r9   )ÚkeyÚreversezTotal files after merging: zVersion updates not enabledzFinal files list: zError loading software: zdisplay_results.html)r   )rJ   r?   rö   r   r   r   r4   r@   Úget_files_by_software_idÚlenr÷   Úcopyrù   ÚsortrI   rV   r   )r¼   r   rý   Ú	all_filesrþ   rÒ   rK   s          r7   rô   rô   F  sÂ  € ð1*Ü
+Ð.¨{¨mÐ<Ô=Ü×(Ñ(¨Ó5ˆÙÜÐ'Ô(ÜÐ'¨Ô1ÜœG GÓ,Ó-Ð-ä
+Ð  §¡¨f°iÓ!@Ð AÐBÔCÜ "× 1Ñ 1°(¸9Ñ2EÓ FˆÑÜ×7Ñ7¸ÓDˆÑä
+Ð&ÀÈ'ÒAR¤s¨8°GÑ+<Ô'=ÐXYÐ&ZÐ[Ô\ð <‰<Ð)Ó*¨eÓ3ÜÐDÔEÜ×5Ñ5°kÓBˆHÜFœ3˜x›=˜/¨Ð3Ô4ð 5=¸WÒ4E˜ Ñ)×.Ñ.Ô0È2ˆIà#ò 
++ÜÐ,¨W¯[©[Ð9IÈ9Ó-UÐ,VÐWÔXØ#ŸK™K¨°Ó4ò 
++DÜÐ1°$·(±(¸:ÀyÓ2QÐ1RÐSÔTØ-4Ð5EÑ-FDÐ)Ñ*Ø%,§[¡[°¸5Ó%AD˜‘NØ*1¯+©+°mÓ*DD˜Ñ'Ø29·+±+¸mÈRÓ2PDÐ.Ñ/à$+¨D¡M ?°!°D¸Ñ4DÐ3EÐ!FD˜‘JØ.2DÐ*Ñ+Ø)0°©D˜Ñ&Ø×$Ñ$ TÕ*ñ
++ð
++ð 
+N‰NÑAÈ4ˆNÔPØ )ˆHWÑÜÐ/´°H¸WÑ4EÓ0FÐ/GÐHÕIäÐ/Ô0ä
+Ð" 8¨GÑ#4Ð"5Ð6Ô7ô Ð1¸HÔEÐEøô ò *Ü
+Ð(¨¨Ð,Ô-Ü
+Ð(¬¨Q«¨Ð1°7Ô;Üœ Ó(Ó)Õ)ûð*ús%   ‚AI ÁG7I É	J#É9JÊJ#ÊJ#z!/software/<software_id>/unpublishc           	      ó¸  — 	 t         j                  | «      }|s t        dd«       t        t	        d«      «      S |d   t
+        j                  k7  r"t        dd«       t        t	        d| ¬«      «      S t         j                  | «      }dd l}|D ]6  }	 |j                  j                  |d	   «      r |j                  |d	   «       Œ8 |D ]  }t         j                  d|d
+   «       Œ t         j                  | «      }|D ]  }t         j                  d|d
+   «       Œ t        d| › «       t         j!                  | «      }t        d|› «       |D ]Ä  }	t        d|	d
+   › «       |	j#                  dg «      D ]`  }
+	 |
+d	   }t        d|› «       |j                  j                  |«      r! |j                  |«       t        d|› «       nt        d|› «       Œb 	 t        d|	d
+   › «       t         j                  d|	d
+   «       t        d|	d
+   › «       ŒÆ |j#                  d«      r4|j                  j                  |d   «      r	  |j                  |d   «       |j#                  d«      r4|j                  j                  |d   «      r	  |j                  |d   «       t         j                  d| «       t        d d!«       t        t	        d«      «      S # t        $ r}t        d
+|d	   › d|› «       Y d }~Œkd }~ww xY w# t        $ r}t        d|
+d	   › d|› «       Y d }~Œ¯d }~ww xY w# t        $ r}t        d|› «       Y d }~Œúd }~ww xY w# t        $ r}t        d|› «       Y d }~Œd }~ww xY w# t        $ r}t        d|› «       Y d }~Œòd }~ww xY w# t        $ r8}t        d"t%        |«      › d«       t        t	        d| ¬«      «      cY d }~S d }~ww xY w)#Nr  rP   rÃ   rA   z)You can only unpublish your own software!rô   rõ   r   r¾   zError deleting file z: r§   r%   Ú	downloadsz"Looking for versions of software: r  zDeleting version: rt   zDeleting version file: zSuccessfully deleted: úFile not found: zError deleting version file z Deleting version from database: rý   z,Successfully deleted version from database: z&Error deleting version from database: r¥   zError deleting logo file: r¦   zError deleting readme file: r   zMSoftware and all its version updates have been successfully removed from SDN.rQ   zError unpublishing software: )r?   rö   r   r   r   r   r%   r  rw   rx   r}   r~   rI   rJ   Údelete_by_idÚget_downloads_by_software_idr÷   r4   rV   )r¼   r   rt   rw   Ú	file_datarK   r  Údownloadrý   rþ   Úversion_filer¾   s               r7   Úunpublish_softwarer  }  sÛ  € ðSMÜ×(Ñ(¨Ó5ˆáÜÐ'¨Ô1ÜœG GÓ,Ó-Ð-ð IÑ¤,§/¡/Ò1ÜÐ=¸wÔGÜœGÐ$5À;ÔOÓPÐPô ×+Ñ+¨KÓ8ˆó 	Øò 	LˆIð
+LØ—7‘7—>‘> )¨KÑ"8Ô9ØB—I‘I˜i¨Ñ4Ô5øð	Lð ò 	?ˆIÜO‰OÐ,¨i¸©oÕ>ð	?ô ×3Ñ3°KÓ@ˆ	Ø!ò 	9ˆHÜO‰O˜K¨°$©Õ8ð	9ô 	Ð2°;°-Ð@ÔAÜ×1Ñ1°+Ó>ˆÜ
+Ð   
+Ð+Ô,àò 	DˆGÜÐ& w¨t¡} oÐ6Ô7à '§¡¨G°RÓ 8ò 
+
+[ð	[Ø ,¨[Ñ 9IÜÐ3°I°;Ð?Ô@Ø—w‘w—~‘~ iÔ0Ø!˜Ÿ	™	 )Ô,ÜÐ 6°y°kÐBÕCäÐ 0°°Ð<Ô=øð
+
+[ð
+DÜÐ8¸À¹¸ÐHÔIÜ—‘ 
+¨G°D©MÔ:ÜÐDÀWÈTÁ]ÀOÐTÕUð'	Dð0 <‰<˜Ô$¨¯©¯©¸ÀÑ8MÔ)Nð
+8Ø—	‘	˜( ;Ñ/Ô0ð
+ <‰<˜
+Ô&¨2¯7©7¯>©>¸(À=Ñ:QÔ+Rð
+:Ø—	‘	˜( =Ñ1Ô2ô
+ 	‰˜
+ KÔ0ä
+Ð]Ð_hÔiÜœ Ó(Ó)Ð)øôu ò 
+LÜÐ,¨Y°{Ñ-CÐ,DÀBÀqÀcÐJ×KÒKûð
+Lûô: !ò [ÜÐ8¸ÀkÑ9RÐ8SÐSUÐVWÐUXÐY×ZÒZûð[ûô ò 
+DÜÐ>¸q¸cÐB×CÒCûð
+Dûô ò 
+8ÜÐ2°1°#Ð6×7Ò7ûð
+8ûô ò 
+:ÜÐ4°Q°CÐ8×9Ñ9ûð
+:ûô ò MÜ
+Ð-¬c°!«f¨XÐ6¸Ô@ÜœÐ 1¸{ÔKÓLÕLûðMúsü   ‚6N ¹7N Á1N Â3KÃB3N Å7AK?ÇN Ç;L*È1N ÉM É/N Ê	M4 Ê5N Ë	K<ËK7Ë1N Ë7K<Ë<N Ë?	L'ÌL"ÌN Ì"L'Ì'N Ì*	MÌ3MÍN ÍMÍN Í	M1ÍM,Í&N Í,M1Í1N Í4	NÍ=NÎN ÎNÎN Î	OÎ!-OÏOÏOz!/download/<software_id>/<file_id>c                 óŠ  — 	 t         j                  | «      }d}d|v rb|j                  dd«      \  }}t         j                  | «      }d }|D ]1  }|d   |k(  sŒ|j	                  dg «      D ]  }	|	d   |k(  sŒ|	}d} n  n |st         j                  |«      }|rs t
+        dd	«       t        t        d
+«      «      S dd l	}
+|d   }|
+j                  j                  |«      s(|
+j                  j                  |«      s|
+j                  j                  |«      }|
+j                  j                  |«      r|}nÓ|
+j                  j                   |
+j                  «       d
+d«      }
+|
+j                  j                  |
+«      rŒ |
+j                   |
+«      }|j	                  d|j	                  dd«      «      }|D ]S  }||v s|j#                  |«      sŒ|
+j                  j                  |
+|«      }|
+j                  j                  |«      sŒQ|} n |
+j                  j                  |«      s t
+        dd	«       t        t        d
+«      «      S ||d<   t         j%                  | |t&        j(                  «       t        t        d| |¬«      «      S # t*        $ r6}t
+        dt-        |«      › d	«       t        t        d
+«      «      cY d }~S d }~ww xY w)NFr	  é   r%   rt   ru   TúFile not found!rP   rÃ   r   r¾   r   r   r½   r)   Údownloads_page)r¼   Úfile_idúDownload failed: )r?   rö   rv   r÷   r4   Úget_file_by_idr   r   r   rw   rx   r}   ÚisabsrÊ   ry   ÚgetcwdÚlistdirÚendswithÚcreate_downloadr   Úremote_addrrI   rV   ©r¼   r#  r   r
+  r  ru   rý   r  rþ   rÒ   rw   r¾   Ú
+absolute_pathÚ
+upload_folderrt   Útarget_filenameÚfÚalternative_pathrK   s                      r7   Ú
+download_filer2  Õ  s  € ðH*Ü×(Ñ(¨Ó5ˆð  ˆØ'‰>à#*§=¡=°°aÓ#8Ñ ˆJ˜Ü×5Ñ5°kÓBˆHØˆIà#ò 
+Ø˜4‘= JÓ.Ø '§¡¨G°RÓ 8ò "˜Ø 
+Ñ+¨xÓ7Ø(,˜IØ.2˜OÙ!ð	"ñ
+ ð
+ñ ä×)Ñ)¨'Ó2ˆIá™yÜÐ# WÔ-ÜœG GÓ,Ó-Ð-ó 	Ø˜kÑ*ˆ	àw‰w~‰~˜iÕ(à—7‘7—=‘= Õ+à "§¡§¡°	Ó :
+Ø—7‘7—>‘> -Ô0Ø -‘Ið %'§G¡G§L¡L°°·±³¸iÈÓ$TMð —w‘w—~‘~ mÔ4Ø * §
+¡
+¨=Ó 9˜ð +4¯-©-¸
+ÀIÇMÁMÐReÐgiÓDjÓ*k˜à!&ò *˜AØ.°!Ñ3°q·z±zÀ/Õ7RØ35·7±7·<±<À
+ÈqÓ3QÐ 0Ø#%§7¡7§>¡>Ð2BÕ#CØ0@ IÙ$)ð*ð w‰w~‰~˜iÔ(ÜÐ# WÔ-ÜœG GÓ,Ó-Ð-ð "+ˆ	+Ñô 	×Ñ˜;¨´×1DÑ1DÔEäœÐ 0¸kÐSZÔ[Ó\Ð\øäò *Ü
+Ð!¤# a£& Ð*¨GÔ4Üœ Ó(Ó)Õ)ûð*úsE   ‚AJ ÁJ Á5AJ Â:DJ Ç
+7J È?J ÉA J Ê	KÊ+J=Ê7KÊ=Kz"/downloads/<software_id>/<file_id>c                 ó.  — 	 t         j                  | «      }d}d|v rb|j                  dd«      \  }}t         j                  | «      }d }|D ]1  }|d   |k(  sŒ|j	                  dg «      D ]  }	|	d   |k(  sŒ|	}d} n  n |st         j                  |«      }|rs t
+        dd	«       t        t        d
+«      «      S dd l	}
+|d   }|
+j                  j                  |«      s(|
+j                  j                  |«      s|
+j                  j                  |«      }|
+j                  j                  |«      r|}nÓ|
+j                  j                   |
+j                  «       d
+d«      }
+|
+j                  j                  |
+«      rŒ |
+j                   |
+«      }|j	                  d|j	                  dd«      «      }|D ]S  }||v s|j#                  |«      sŒ|
+j                  j                  |
+|«      }|
+j                  j                  |«      sŒQ|} n |
+j                  j                  |«      s t
+        dd	«       t        t        d
+«      «      S ||d<   t%        d||¬«      S # t&        $ r6}t
+        dt)        |«      › d	«       t        t        d
+«      «      cY d }~S d }~ww xY w)NFr	  r   r%   rt   ru   Tr!  rP   rÃ   r   r¾   r   r   r½   r)   zdownloads.html)r   rÒ   zDownload page failed: )r?   rö   rv   r÷   r4   r%  r   r   r   rw   rx   r}   r&  rÊ   ry   r'  r(  r)  r   rI   rV   r,  s                      r7   r"  r"  !  s_  € ðE*Ü×(Ñ(¨Ó5ˆð  ˆØ'‰>à#*§=¡=°°aÓ#8Ñ ˆJ˜Ü×5Ñ5°kÓBˆHØˆIà#ò 
+Ø˜4‘= JÓ.Ø '§¡¨G°RÓ 8ò "˜Ø 
+Ñ+¨xÓ7Ø(,˜IØ.2˜OÙ!ð	"ñ
+ ð
+ñ ä×)Ñ)¨'Ó2ˆIá™yÜÐ# WÔ-ÜœG GÓ,Ó-Ð-ó 	Ø˜kÑ*ˆ	àw‰w~‰~˜iÕ(à—7‘7—=‘= Õ+à "§¡§¡°	Ó :
+Ø—7‘7—>‘> -Ô0Ø -‘Ið %'§G¡G§L¡L°°·±³¸iÈÓ$TMð —w‘w—~‘~ mÔ4Ø * §
+¡
+¨=Ó 9˜ð +4¯-©-¸
+ÀIÇMÁMÐReÐgiÓDjÓ*k˜à!&ò *˜AØ.°!Ñ3°q·z±zÀ/Õ7RØ35·7±7·<±<À
+ÈqÓ3QÐ 0Ø#%§7¡7§>¡>Ð2BÕ#CØ0@ IÙ$)ð*ð w‰w~‰~˜iÔ(ÜÐ# WÔ-ÜœG GÓ,Ó-Ð-ð "+ˆ	+ÑäÐ/¸(ÈÔSÐSøäò *Ü
+Ð&¤s¨1£v hÐ/°Ô9Üœ Ó(Ó)Õ)ûð*úsD   ‚AI ÁI Á5AI Â:DI Ç
+7I È?I ÉI É	JÉ+JÊ	JÊJz/download_file/<file_id>c                 óP  — 	 d}d| v rŒ| j                  dd«      \  }}t        j                  di «      }d }|D ]Z  }t        j                  |d   «      }|D ]7  }|d   |k(  r)|j	                  dg «      D ]  }	|	d   |k(  sŒ|	}d} n |r n|sŒ7 n |sŒZ n |st        j                  | «      }s t
+        d	d
+«       t        t        d«      «      S dd l	}
+|d
+   }|
+j                  j                  |«      s(|
+j                  j                  |«      s|
+j                  j                  |«      }|
+j                  j                  |«      r|}nÓ|
+j                  j                   |
+j                  «       dd«      }
+|
+j                  j                  |
+«      rŒ |
+j                   |
+«      }|j	                  d|j	                  dd«      «      }|D ]S  }||v s|j#                  |«      sŒ|
+j                  j                  |
+|«      }|
+j                  j                  |«      sŒQ|} n |
+j                  j                  |«      s t
+        d	d
+«       t        t        d«      «      S t%        |d|d   ¬«      S # t&        $ r6}t
+        dt)        |«      › d
+«       t        t        d«      «      cY d }~S d }~ww xY w)NFr	  r   r   r%   rt   ru   Tr!  rP   rÃ   r   r¾   r   r½   r)   )Ú
+as_attachmentÚ
+download_namer$  )rv   r?   rÜ   r÷   r4   r%  r   r   r   rw   rx   r}   r&  rÊ   ry   r'  r(  r)  r	   rI   rV   )r#  r
+  r  ru   Úall_softwarer  r   rý   rþ   rÒ   rw   r¾   r-  r.  rt   r/  r0  r1  rK   s                      r7   Údownload_file_directr8  j  s|  € ðI*ð  ˆØ'‰>à#*§=¡=°°aÓ#8Ñ ˆJ˜ô Ÿ7™7 :¨rÓ2ˆLØˆIà(ò 
+Ü×9Ñ9¸(À4¹.ÓIØ'ò 
+GØ˜t‘}¨
+Ò2Ø$+§K¡K°¸Ó$<ò &˜DØ# JÑ/°8Ó;Ø,0 	Ø26 Ù %ð	&ñ
+ %Ù!Ú Ùð
+ò Ùð
+ñ  ä×)Ñ)¨'Ó2ˆIáÜÐ# WÔ-ÜœG GÓ,Ó-Ð-ó 	Ø˜kÑ*ˆ	àw‰w~‰~˜iÕ(à—7‘7—=‘= Õ+à "§¡§¡°	Ó :
+Ø—7‘7—>‘> -Ô0Ø -‘Ið %'§G¡G§L¡L°°·±³¸iÈÓ$TMð —w‘w—~‘~ mÔ4Ø * §
+¡
+¨=Ó 9˜ð +4¯-©-¸
+ÀIÇMÁMÐReÐgiÓDjÓ*k˜à!&ò *˜AØ.°!Ñ3°q·z±zÀ/Õ7RØ35·7±7·<±<À
+ÈqÓ3QÐ 0Ø#%§7¡7§>¡>Ð2BÕ#CØ0@ IÙ$)ð*ð w‰w~‰~˜iÔ(ÜÐ# WÔ-ÜœG GÓ,Ó-Ð-ä˜°$ÀiÐPcÑFdÔeÐeøÜò *Ü
+Ð!¤# a£& Ð*¨GÔ4Üœ Ó(Ó)Õ)ûð*úsI   ‚A:I& Á=
+I& ÂI& Â;I& Ã
+DI& Ç7I& È?I& ÉI& É&	J%É/+J ÊJ%Ê J%z/profile_picture/<user_id>c                 ó   — 	 t         j                  | «      }|r|j                  d«      st        d«      S |d   }t        j
+                  j
+                  |«      st        d«      S t        |«      S # t        $ r}t        d«      cY d}~S d}~ww xY w)zServe user profile picturer-   ztemplates/pics/pf-pic.jpgN)r?   r@   r4   r	   rw   rx   r}   rI   )rA   r6   r   rK   s       r7   Úserve_profile_picturer:  ·  s…   € ð6ä×%Ñ% gÓ.ˆ	Ù 	§
+¡
+Ð.?Ô @äÐ8Ó9Ð9à$Ð%6Ñ7Ðô w‰w~‰~Ð.Ô/äÐ8Ó9Ð9äÐ)Ó*Ð*øÜò 6äÐ4Ó5Õ5ûð6ús(   ‚2A/ µ.A/ Á$
+A/ Á/	B
+Á8
+BÂB
+ÂB
+z/uploads/<path:filename>c                 óª  — 	 t        d| › «       d| v s| j                  d«      rt        d«       yt        j                  j	                  | «      st        j                  j                  | «      } t        d| › «       t        dt        j                  j
+                  | «      › «       t        dt        j                  | t        j                  «      › «       t        j                  j
+                  | «      st        d	| › «       y
+t        | «      S # t        $ r8}t        d|› «       t        dd
+«       t        t        d«      «      cY d}~S d}~ww xY w)z*Serve uploaded files (logos, readme, etc.)z*serve_uploaded_file called with filename: z..rC   zSecurity: Invalid file path)z
+Access deniedi“  zFinal file path: z
+File exists: zFile is readable: r  )zFile not foundr  zError serving file: r!  rP   r   N)rJ   Ú
+startswithrw   rx   r&  rÊ   r}   ÚaccessÚR_OKr	   rI   r   r   r   ©ru   rK   s     r7   Úserve_uploaded_filer@  Í  s  € ð)Ü
+Ð:¸8¸*ÐEÔFð 8Ñ˜x×2Ñ2°3Ô7ÜÐ/Ô0Ø'ô w‰w}‰}˜XÔ&ä—w‘w—‘ xÓ0ˆHä
+Ð! ( Ð,Ô-Ü
+
+œbŸg™gŸn™n¨XÓ6Ð7Ð8Ô9Ü
+Ð"¤2§9¡9¨X´r·w±wÓ#?Ð"@ÐAÔBäw‰w~‰~˜hÔ'ÜÐ$ X JÐ/Ô0Ø(ä˜Ó"Ð"øÜò )Ü
+Ð$ Q CÐ(Ô)Ü
+Ð Ô)Üœ ›Ó(Õ(ûð)ús)   ‚.D ±CD Ä
+D Ä	EÄ-E
+ÅEÅ
+Ez/templates/pics/<filename>c                 óŒ   — 	 t        d| › «      S # t        $ r*}t        dd«       t        t	        d«      «      cY d}~S d}~ww xY w)z'Serve images from templates/pics folderztemplates/pics/zImage not found!rP   r   N)r	   rI   r   r   r   r?  s     r7   Úserve_template_imagerB  ë  sC   € ð)Ü˜?¨8¨*Ð5Ó6Ð6øÜò )Ü
+Ð  'Ô*Üœ ›Ó(Õ(ûð)ús   ‚
+ 	A™>¸A¾Az/healthc                  ó˜   — t         j                  «       } t        | rdnd| rdndt        j                  «       j                  «       dœ«      S )zHealth check endpointÚOKÚERRORÚ	connectedÚdisconnected)ÚstatusÚdatabaseÚ	timestamp)r?   Útest_connectionr
+   r   rú   rû   )Ú	db_statuss    r7   Úhealth_checkrM  ô  sE   € ô ×"Ñ"Ó$€IÜÙ#‘$¨Ù#,‘K°.Ü—_‘_Ó&×0Ñ0Ó2ñó ð r9   Ú__main__z/Warning: Could not connect to SmallerDB server!zGPlease make sure the Node.js server is running on http://localhost:3000z-Run: cd smallerDB && npm install && npm startr)   z*Starting SDN server with network access...z,SDN will be accessible on your local networkz#Local access: http://localhost:5000z#Network access: http://YOUR_IP:5000z0.0.0.0iˆ  )ÚdebugÚhostÚport)FÚflaskr   r   r   r   r   r   r	   r
+   Úflask_loginr   r   r
+   r   r   r   Úwerkzeug.securityr   r   Úwerkzeug.utilsr   r   rw   Údotenvr   rI  r   r:   rz   Úgetenvr{   r?   Ú
+login_managerÚinit_appÚ
+login_viewr|   rx   ry   r#   Úuser_loaderrB   Úrouter   rW   r\   r^   rh   r‹   rŽ   rY   r–   r•   rÃ   rß   ré   r”   r  r  rô   r  r2  r"  r8  r:  r@  rB  rM  rK  rJ   Úrunr=   r9   r7   ú<module>r^     s6  ðß _× _Ó _ß f× fß IÝ *Ý Û 	Ý Ý á „
+áˆHƒo€Ø$˜2Ÿ9™9 \Ð3IÓJ€‡
+
+ˆ<Ñ Ø'€‡
+
+ˆ?Ñ Ø#:€‡
+
+ÐÑ  ñ ƒZ€Ù“€
+Ø 
+× Ñ sÔ Ø!€
+Ô ð €‡ˆCJ‰JÑ'°$Õ 7Ø €‡ˆBG‰GL‰L˜Ÿ™ OÑ4°jÓAÈDÕ QØ €‡ˆBG‰GL‰L˜Ÿ™ OÑ4°gÓ>ÈÕ NØ €‡ˆBG‰GL‰L˜Ÿ™ OÑ4°hÓ?È$Õ OØ €‡ˆBG‰GL‰L˜Ÿ™ OÑ4°jÓAÈDÕ QôDˆ9ô Dð" ×Ññó ðð ‡ˆ3ƒñ
+Ió ð
+Ið ‡ˆ;  €Ó)ñ%ó *ð%ð2 ‡ˆ8˜f˜X€Ó&ñ%ó 'ð%ð$ ‡ˆ9ÓØñ%ó ó ð%ð ‡ˆ:ÓØñ
+Kó ó ð
+Kð ‡ˆ: ˜x€Ó(ØñJ9ó ó )ðJ9ðX ‡Ð$¨v¨h€Ó7Øñ9ó ó 8ð9ð, ‡ÐÓØñ3ó ó ð3ð ‡Ð¨ x€Ó0Øñ,ó ó 1ð,òc4ðJ ‡ˆ8ÓñSó ðSð$ ‡ˆ?ÓñZó ðZð* ‡ÐÓ Øñ/ó ó !ð/ò*]<ð~ ‡Ð v h€Ó/Øñ2<ó ó 0ð2<ðh ‡Ð1Ó2ñ/ó 3ð/ð  ‡Ð$Ó%ñ4Fó &ð4Fðl ‡Ð.¸¸€ÓAØñTMó ó BðTMðl ‡Ð.Ó/ñI*ó 0ðI*ðV ‡Ð/Ó0ñF*ó 1ðF*ðP ‡Ð%Ó&ñJ*ó 'ðJ*ðX ‡Ð'Ó(ñ6ó )ð6ð* ‡Ð%Ó&ñ)ó 'ð)ð: ‡Ð'Ó(ñ)ó )ð)ð ‡ˆ9Óñó ðð ˆzÒà
+×ÑÔÙ
+Ð?Ô@Ù
+ÐWÔXÙ
+Ð=Ô>Ù
+ˆbŒ	á	Ð
+6Ô7Ù	Ð
+8Ô9Ù	Ð
+/Ô0Ù	Ð
+/Ô0Ù	ˆ"„Ià‡GG$˜Y¨T€GÕ2ð r9   
+  </p>
+</body>
+</html>

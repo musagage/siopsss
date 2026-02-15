@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>client_js_sdn.html</title>
+</head>
+<body>
+  <code>
+    const axios = require('axios');
+
+class SmallerDBClient {
+    constructor(baseURL = 'http://localhost:3000/api') {
+        this.baseURL = baseURL;
+        this.client = axios.create({
+            baseURL: this.baseURL,
+            timeout: 10000,
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+    }
+
+    async healthCheck() {
+        try {
+            const response = await this.client.get('/health');
+            return response.data;
+        } catch (error) {
+            throw new Error(`Health check failed: ${error.message}`);
+        }
+    }
+
+    // CRUD Operations
+    async insert(collection, document) {
+        try {
+            const response = await this.client.post(`/${collection}`, document);
+            return response.data;
+        } catch (error) {
+            throw new Error(`Insert failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async find(collection, query = {}) {
+        try {
+            const response = await this.client.get(`/${collection}`, { params: query });
+            return response.data;
+        } catch (error) {
+            throw new Error(`Find failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async findOne(collection, query) {
+        try {
+            const response = await this.client.get(`/${collection}`, { params: query });
+            return response.data.length > 0 ? response.data[0] : null;
+        } catch (error) {
+            throw new Error(`FindOne failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async findById(collection, id) {
+        try {
+            const response = await this.client.get(`/${collection}/${id}`);
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 404) return null;
+            throw new Error(`FindById failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async update(collection, query, updateData) {
+        try {
+            const docs = await this.find(collection, query);
+            if (docs.length === 0) return false;
+            
+            const updatePromises = docs.map(doc => 
+                this.client.put(`/${collection}/${doc.id}`, updateData)
+            );
+            
+            await Promise.all(updatePromises);
+            return true;
+        } catch (error) {
+            throw new Error(`Update failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async updateById(collection, id, updateData) {
+        try {
+            const response = await this.client.put(`/${collection}/${id}`, updateData);
+            return response.data;
+        } catch (error) {
+            if (error.response?.status === 404) return false;
+            throw new Error(`UpdateById failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async delete(collection, query) {
+        try {
+            const docs = await this.find(collection, query);
+            if (docs.length === 0) return 0;
+            
+            const deletePromises = docs.map(doc => 
+                this.client.delete(`/${collection}/${doc.id}`)
+            );
+            
+            await Promise.all(deletePromises);
+            return docs.length;
+        } catch (error) {
+            throw new Error(`Delete failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async deleteById(collection, id) {
+        try {
+            await this.client.delete(`/${collection}/${id}`);
+            return true;
+        } catch (error) {
+            if (error.response?.status === 404) return false;
+            throw new Error(`DeleteById failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    // Advanced operations
+    async count(collection, query = {}) {
+        try {
+            const response = await this.client.get(`/${collection}/count`, { params: query });
+            return response.data.count;
+        } catch (error) {
+            throw new Error(`Count failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    async search(collection, field, value, limit = 10) {
+        try {
+            const response = await this.client.get(`/${collection}/search`, {
+                params: { field, value, limit }
+            });
+            return response.data;
+        } catch (error) {
+            throw new Error(`Search failed: ${error.response?.data?.error || error.message}`);
+        }
+    }
+
+    // Helper methods for specific collections
+    // Users
+    async createUser(userData) {
+        return await this.insert('users', userData);
+    }
+
+    async findUserByUsername(username) {
+        return await this.findOne('users', { username });
+    }
+
+    async findUserByEmail(email) {
+        return await this.findOne('users', { email });
+    }
+
+    async findUserByLogin(login) {
+        return await this.find('users', {
+            $or: [
+                { username: login },
+                { full_name: login }
+            ]
+        });
+    }
+
+    // Software
+    async createSoftware(softwareData) {
+        return await this.insert('software', softwareData);
+    }
+
+    async getSoftwareByUserId(userId) {
+        return await this.find('software', { user_id: userId });
+    }
+
+    async searchSoftwareByName(name) {
+        return await this.search('software', 'name', name, 50);
+    }
+
+    async getLatestSoftware(limit = 5) {
+        const allSoftware = await this.find('software');
+        return allSoftware
+            .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+            .slice(0, limit);
+    }
+
+    // Software Files
+    async createSoftwareFile(fileData) {
+        return await this.insert('software_files', fileData);
+    }
+
+    async getFilesBySoftwareId(softwareId) {
+        return await this.find('software_files', { software_id: softwareId });
+    }
+
+    // Downloads
+    async createDownload(downloadData) {
+        return await this.insert('downloads', downloadData);
+    }
+
+    async getDownloadsBySoftwareId(softwareId) {
+        return await this.find('downloads', { software_id: softwareId });
+    }
+
+    async getDownloadStats(softwareId) {
+        const downloads = await this.getDownloadsBySoftwareId(softwareId);
+        return {
+            total_downloads: downloads.length,
+            last_download: downloads.length > 0 ? 
+                downloads.sort((a, b) => new Date(b.download_date) - new Date(a.download_date))[0].download_date : 
+                null
+        };
+    }
+}
+
+module.exports = SmallerDBClient;
+
+  </code>
+</body>
+</html>

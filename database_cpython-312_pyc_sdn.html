@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>database_cpython-312_pyc_sdn.html</title>
+</head>
+<body>
+  <p>
+    Ë
+
+    V¾„iö5  ã                   óÌ   — d dl Z d dlZd dlmZ d dlmZmZmZmZ d dlm	Z	  G d„ d«      Z
+ G d„ de
+«      Z G d	„ d
+e
+«      Z G d„ de
+«      Z
+ G d
+„ de
+«      Z G d„ deee
+e«      Zy)é    N)Údatetime)ÚListÚDictÚOptionalÚAny)ÚPathc                   ó®  — e Zd Zdd„Zdedefd„Zdedeeee	f      fd„Z
+dedeeee	f      fd„Zdefd	„Zded
+eee	f   deee	f   fd„Z
+dded
+eee	f   deeee	f      fd„Zded
+eee	f   deeee	f      fd„Zdededeeee	f      fd„Zdededeee	f   deeee	f      fd„Zdededefd„Zddededededeeee	f      f
+d„Zdded
+eee	f   defd„Zy)Ú	SmallerDBÚdatac                 ó\   — t        |«      | _        | j                  j                  d¬«       y )NT)Úexist_ok)r   Údata_dirÚmkdir)Úselfr   s     ú3D:\EI research\siops soft solutions\SDN\database.pyÚ__init__zSmallerDB.__init__   s"   € Ü˜X›ˆŒ
+Ø
+‰
+×Ñ TÐÕ*ó    Ú
+collectionÚreturnc                 ó&   — | j                   |› dz  S )z"Get the file path for a collectionz.json)r   )r   r   s     r   Ú_get_file_pathzSmallerDB._get_file_path   s   € à}‰} * ¨UÐ3Ñ3Ð3r   Ú	file_pathc                 óÜ   — |j                  «       sg S 	 t        |dd¬«      5 }t        j                  |«      cddd«       S # 1 sw Y   yxY w# t        j                  t
+        f$ r g cY S w xY w)zRead data from JSON fileÚrúutf-8©ÚencodingN)ÚexistsÚopenÚjsonÚloadÚJSONDecodeErrorÚFileNotFoundError)r   r   Úfs      r   Ú
+_read_filezSmallerDB._read_file   se   € à×ÑÔ!ØˆIð	Üi ¨wÔ7ð 
+$¸1Ü—y‘y “|÷
+$÷ 
+$ò 
+$ûä×$Ñ$Ô&7Ð8ò 	ØŠIð	ús-   ”A
+ ¢A·	A
+ ÁA
+ÁA
+ Á
+A
+ Á
+A+Á*A+c                 ó|   — t        |dd¬«      5 }t        j                  ||dd¬«       ddd«       y# 1 sw Y   yxY w)zWrite data to JSON fileÚwr   r   é   F)ÚindentÚensure_asciiN)r   r    Údump)r   r   r   r$   s       r   Ú_write_filezSmallerDB._write_file   s7   € ä
+)˜S¨7Ô
+3ð 	=°qÜI‰Id˜A a°eÕ<÷	=÷ 	=ñ 	=ús   2²;c                 óH   — t        j                  «       j                  d«      S )zGenerate a unique IDz%Y%m%d%H%M%S%f)r   ÚnowÚstrftime)r   s    r   Ú_generate_idzSmallerDB._generate_id   s   € ä|‰|‹~×&Ñ&Ð'7Ó8Ð8r   Údocumentc                 ó  — | j                  |«      }| j                  |«      }d|vr| j                  «       |d<   d|vr%t        j                  «       j                  «       |d<   |j
+                  |«       | j                  ||«       |S )z#Insert a document into a collectionÚidÚ
+created_at)r   r%   r0   r   r.   Ú	isoformatÚappendr,   )r   r   r1   r   r   s        r   ÚinsertzSmallerDB.insert#   s~   € à×'Ñ'¨
+Ó3ˆ	Ø‰˜yÓ)ˆð xÑØ!×.Ñ.Ó0ˆHT‰NØ˜xÑ'Ü%-§\¡\£^×%=Ñ%=Ó%?ˆH\Ñ"à‰HÔØ×Ñ˜ DÔ)Øˆr   NÚqueryc                 ó  — | j                  |«      }| j                  |«      }|s|S g }|D ]R  }d}|j                  «       D ]'  \  }}	||vst        ||   «      t        |	«      k7  sŒ%d} n |sŒB|j	                  |«       ŒT |S )zFind documents in a collectionTF)r   r%   ÚitemsÚstrr6   )
+r   r   r8   r   r   ÚresultsÚdocÚmatchÚkeyÚvalues
+             r   ÚfindzSmallerDB.find2   s–   € à×'Ñ'¨
+Ó3ˆ	Ø‰˜yÓ)ˆáØˆKð ˆØò 	$ˆCØˆEØ#Ÿk™k›mò 
+‘
+UØ˜c‘>¤S¨¨S©£]´c¸%³jÓ%@Ø!EÙð
+ò Ø—‘˜sÕ#ð	$ð ˆr   c                 ó8   — | j                  ||«      }|r|d   S dS )z!Find one document in a collectionr   N©rA   )r   r   r8   r<   s       r   Úfind_onezSmallerDB.find_oneG   s#   € à—)‘)˜J¨Ó.ˆÙ$ˆwq‰zÐ.¨$Ð.r   Údoc_idc                 ó†   — | j                  |«      }| j                  |«      }|D ]  }|j                  d«      |k(  sŒ|c S  y)zFind a document by its IDr3   N)r   r%   Úget)r   r   rE   r   r   r=   s         r   Ú
+find_by_idzSmallerDB.find_by_idL   sI   € à×'Ñ'¨
+Ó3ˆ	Ø‰˜yÓ)ˆàò 	ˆCØw‰wt‹} Ó&Ø’
+ð	ð r   Úupdate_datac                 ó@  — | j                  |«      }| j                  |«      }t        |«      D ]n  \  }}|j                  d«      |k(  sŒ||   j	                  |«       t        j                  «       j                  «       ||   d<   | j                  ||«       ||   c S  y)zUpdate a document by its IDr3   Ú
+updated_atN)	r   r%   Ú	enumeraterG   Úupdater   r.   r5   r,   )r   r   rE   rI   r   r   Úir=   s           r   Úupdate_by_idzSmallerDB.update_by_idV   s’   € à×'Ñ'¨
+Ó3ˆ	Ø‰˜yÓ)ˆä “oò 	‰FˆAˆsØw‰wt‹} Ó&àQ‘—‘˜{Ô+Ü(0¯©«×(@Ñ(@Ó(BQ‘˜Ñ%Ø× Ñ  ¨DÔ1Ø˜A‘w’ð
+	ð r   c                 óÄ   — | j                  |«      }| j                  |«      }t        |«      D ]0  \  }}|j                  d«      |k(  sŒ||= | j	                  ||«        y y)zDelete a document by its IDr3   TF)r   r%   rL   rG   r,   )r   r   rE   r   r   rN   r=   s          r   Údelete_by_idzSmallerDB.delete_by_ide   sf   € à×'Ñ'¨
+Ó3ˆ	Ø‰˜yÓ)ˆä “oò 	‰FˆAˆsØw‰wt‹} Ó&Ø˜GØ× Ñ  ¨DÔ1Ùð		ð r   Úfieldr@   Úlimitc                 ó  — | j                  |«      }| j                  |«      }|sg S |j                  «       }g }|D ]H  }	||	v sŒ|t        |	|   «      j                  «       v sŒ'|j	                  |	«       t        |«      |k\  sŒG |S  |S )zSearch documents by field value)r   r%   Úlowerr;   r6   Úlen)
+r   r   rR   r@   rS   r   r   Úsearch_termr<   r=   s
+             r   ÚsearchzSmallerDB.searchr   s   € à×'Ñ'¨
+Ó3ˆ	Ø‰˜yÓ)ˆáØˆIà—k‘k“mˆØˆàò 	ˆCØ˜Š| ¬s°3°u±:«×/DÑ/DÓ/FÒ FØ—‘˜sÔ#Üw“< 5Ó(Øàˆð
+	ð ˆr   c                 ó’   — |rt        | j                  ||«      «      S | j                  |«      }t        | j                  |«      «      S )zCount documents in a collection)rV   rA   r   r%   )r   r   r8   r   s       r   ÚcountzSmallerDB.count…   s?   € áÜt—y‘y ¨UÓ3Ó4Ð4à×+Ñ+¨JÓ7ˆIÜt—‘ yÓ1Ó2Ð2r   )r   ©N)é
+   )Ú__name__Ú
+__module__Ú__qualname__r   r;   r   r   r   r   r   r%   r,   r0   r7   rA   r   rD   rH   rO   ÚboolrQ   ÚintrX   rZ   © r   r   r
+   r
+      sÍ  „ ó+ð4¨ð 4°ó 4ð Dð ¨T°$°s¸C°x±.Ñ-Aó ð= Tð =°°d¸3À¸8±nÑ1Eó =ð
+9˜có 9ð
+ ð 
+°°S¸#°X±ð 
+À4ÈÈSÈÁ>ó 
+ñ˜sð ¨4°°S°©>ð ÀTÈ$ÈsÐTWÈxÉ.ÑEYó ð*/ 3ð /¨t°C¸°H©~ð /À(È4ÐPSÐUXÐPXÉ>ÑBZó /ð
+ Sð °#ð ¸(À4ÈÈSÈÁ>Ñ:Ró ð
+ sð 
+°Cð 
+ÀdÈ3ÐPSÈ8Ánð 
+ÐYaÐbfÐgjÐloÐgoÑbpÑYqó 
+ð sð °Cð ¸Dó ñ ð ¨Sð ¸ð ÀSð ÐRVÐW[Ð\_ÐadÐ\dÑWeÑRfó ñ&3 ð 3¨D°°c°©Nð 3Àcô 3r   r
+   c                   óä   — e Zd Zdedededededeeef   fd„Zdedeeeef      fd„Zdedeeeef      fd	„Z	d
+edeeeef      fd„Z
+dedeeeef      fd
+„Zdedeeef   deeeef      fd„Zy)ÚUserDBÚ	full_nameÚusernameÚemailÚ
+password_hashÚ	user_typer   c                 ó6   — |||||dœ}| j                  d|«      S )zCreate a new user)re   rf   rg   rh   ri   Úusers©r7   )r   re   rf   rg   rh   ri   Ú	user_datas          r   Úcreate_userzUserDB.create_user   s-   € ð #Ø ØØ*Ø"ñ
+ˆ	ð {‰{˜7 IÓ.Ð.r   c                 ó*   — | j                  dd|i«      S )zFind a user by usernamerk   rf   ©rD   )r   rf   s     r   Úfind_user_by_usernamezUserDB.find_user_by_usernameš   s   € à}‰}˜W z°8Ð&<Ó=Ð=r   c                 ó*   — | j                  dd|i«      S )zFind a user by emailrk   rg   rp   )r   rg   s     r   Úfind_user_by_emailzUserDB.find_user_by_emailž   s   € à}‰}˜W w°Ð&6Ó7Ð7r   Úloginc                 óŒ   — | j                  d«      }|D ].  }|j                  d«      |k(  s|j                  d«      |k(  sŒ,|c S  y)z$Find a user by username or full namerk   rf   re   N)rA   rG   )r   rt   rk   Úusers       r   Úfind_user_by_loginzUserDB.find_user_by_login¢   sJ   € à—	‘	˜'Ó"ˆØò 	ˆDØx‰x˜
+Ó# uÒ,°·±¸Ó0EÈÓ0NØ’ð	ð r   Úuser_idc                 ó&   — | j                  d|«      S )zGet a user by IDrk   ©rH   ©r   rx   s     r   Úget_user_by_idzUserDB.get_user_by_idª   s   € à‰˜w¨Ó0Ð0r   rI   c                 ó(   — | j                  d||«      S )zUpdate user datark   )rO   )r   rx   rI   s      r   Úupdate_userzUserDB.update_user®   s   € à× Ñ  ¨'°;Ó?Ð?r   N)
+r]   r^   r_   r;   r   r   rn   r   rq   rs   rw   r|   r~   rb   r   r   rd   rd   Ž   sø   „ ð	/ Sð 	/°Cð 	/Àð 	/ÐTWð 	/Ðdgð 	/ÐlpÐqtÐvyÐqyÑlzó 	/ð>¨cð >°h¸tÀCÈÀH¹~Ñ6Nó >ð8¨ð 8°¸¸cÀ3¸h¹Ñ0Hó 8ð¨ð °¸¸cÀ3¸h¹Ñ0Hó ð1 cð 1¨h°t¸CÀ¸H±~Ñ.Fó 1ð@ 3ð @°T¸#¸s¸(±^ð @ÈÐQUÐVYÐ[^ÐV^ÑQ_ÑH`ô @r   rd   c            
+       ó  — e Zd Zdedededeeef   fd„Zdedeeeef      fd„Zdedeeeef      fd„Z	dde
+deeeef      fd	„Zd
+edeeeef      fd„Z
+deeef   deeef   fd
+„Zd
+edeeeef      fd„Zdedefd„Zy)Ú
+SoftwareDBÚnameÚdescriptionrx   r   c                 ó6   — |||dœ|¥}| j                  d|«      S )zCreate new software entry)r   r‚   rx   Úsoftwarerl   )r   r   r‚   rx   ÚkwargsÚ
+software_datas         r   Úcreate_softwarezSoftwareDB.create_software´   s1   € ð Ø&Øñ
+ð ð	
+ˆ
+ð {‰{˜: }Ó5Ð5r   c                 ó*   — | j                  dd|i«      S )z#Get all software by a specific userr„   rx   rC   r{   s     r   Úget_software_by_user_idz"SoftwareDB.get_software_by_user_id¾   s   € ày‰y˜ i°Ð%9Ó:Ð:r   c                 ó   — |rt        |j                  «       «      dk  rg S |j                  «       j                  «       }| j                  d«      }g }t	        «       }|D ]i  }|d   |v rŒd|v r;||d   j                  «       v r&|j                  |«       |j
+                  |d   «       ŒKd|v r;||d   j                  «       v r&|j                  |«       |j
+                  |d   «       ŒŠd|v rZ| j                  |d   «      }|rDd|v r@||d   j                  «       v r+||d<   |j                  |«       |j
+                  |d   «       Œèd	|v r<||d	   j                  «       v r'|j                  |«       |j
+                  |d   «       Œ(d
+|v sŒ.||d
+   j                  «       v sŒE|j                  |«       |j
+                  |d   «       Œl |dd S )
+zKEnhanced search software by name, description, publisher name, and keywordsé   r„   r3   r   r‚   rx   re   Ú	publisherÚcategoryÚ	target_osNé2   )rV   ÚstriprU   rA   Úsetr6   Úaddr|   )r   r   rW   Úall_softwareÚmatching_resultsÚseen_idsr„   rŒ   s           r   Úsearch_software_by_namez"SoftwareDB.search_software_by_nameÂ   sæ  € á”s˜4Ÿ:™:›<Ó(¨1Ò,ØˆIà—j‘j“l×(Ñ(Ó*ˆð —y‘y Ó,ˆØÐÜ“5ˆà$ó #	ˆHØ˜‰~ Ñ)Øð ˜Ñ! k°X¸fÑ5E×5KÑ5KÓ5MÑ&MØ ×'Ñ'¨Ô1Ø—‘˜X d™^Ô,Øð  Ñ(¨[¸HÀ]Ñ<S×<YÑ<YÓ<[Ñ-[Ø ×'Ñ'¨Ô1Ø—‘˜X d™^Ô,Øð ˜HÑ$Ø ×/Ñ/°¸Ñ0CÓD	Ù °	Ñ!9¸kÈYÐWbÑMc×MiÑMiÓMkÑ>kØ,5H˜[Ñ)Ø$×+Ñ+¨HÔ5Ø—L‘L ¨$¡Ô0Øð ˜XÑ%¨+¸À*Ñ9M×9SÑ9SÓ9UÑ*UØ ×'Ñ'¨Ô1Ø—‘˜X d™^Ô,Ùð ˜hÓ&¨;¸(À;Ñ:O×:UÑ:UÓ:WÓ+WØ ×'Ñ'¨Ô1Ø—‘˜X d™^Ô,ÙðG#	ðJ    Ð$Ð$r   rS   c                 óL   — | j                  d«      }t        |d„ d¬«      }|d| S )zGet latest software entriesr„   c                 ó&   — | j                  dd«      S )Nr4   Ú ©rG   ©Úxs    r   ú<lambda>z0SoftwareDB.get_latest_software.<locals>.<lambda>ù   s   € ¸Q¿U¹UÀ<ÐQSÓ=T€ r   T©r?   ÚreverseN)rA   Úsorted)r   rS   r“   Úsorted_softwares       r   Úget_latest_softwarezSoftwareDB.get_latest_softwareõ   s-   € à—y‘y Ó,ˆä  Ñ3TÐ^bÔcˆØ˜v Ð&Ð&r   Úsoftware_idc                 ó&   — | j                  d|«      S )zGet software by IDr„   rz   ©r   r£   s     r   Úget_software_by_idzSoftwareDB.get_software_by_idü   s   € à‰˜z¨;Ó7Ð7r   Úversion_datac                 ó&   — | j                  d|«      S )zCreate new version entryÚversionsrl   )r   r§   s     r   Úcreate_versionzSoftwareDB.create_version   s   € à{‰{˜: |Ó4Ð4r   c                 óf   — t        d|› «       | j                  dd|i«      }t        d|› «       |S )zGet all versions for a softwarez,Database: Getting versions for software_id: r©   r£   zDatabase: Found versions: )ÚprintrA   )r   r£   r©   s      r   Úget_versions_by_software_idz&SoftwareDB.get_versions_by_software_id  s<   € ä
+Ð<¸[¸MÐJÔKØ—9‘9˜Z¨-¸Ð)EÓFˆÜ
+Ð*¨8¨*Ð5Ô6Øˆr   Ú
+version_idc                 ó~   — 	 | j                  d|ddi«      }|duS # t        $ r}t        d|› «       Y d}~yd}~ww xY w)zMark a version as no longer newr©   Úis_newFNzError marking version as old: )rO   Ú	Exceptionr¬   )r   r®   ÚresultÚes       r   Úmark_version_as_oldzSoftwareDB.mark_version_as_old  sN   € ð	Ø×&Ñ& z°:ÀÈ%Ð?PÓQˆFØ Ð%Ð%øÜò 	ÜÐ2°1°#Ð6Ô7Üûð	ús   ‚ ›	<¤7·<N)é   )r]   r^   r_   r;   r   r   r‡   r   r‰   r–   ra   r¢   r   r¦   rª   r­   r`   r´   rb   r   r   r€   r€   ³   s  „ ð6 Cð 6°cð 6ÀCð 6ÐVZÐ[^Ð`cÐ[cÑVdó 6ð;¨sð ;°t¸DÀÀcÀ¹NÑ7Kó ;ð1%¨Cð 1%°D¸¸cÀ3¸h¹Ñ4Hó 1%ñf'¨ð '°T¸$¸sÀC¸x¹.Ñ5Ió 'ð8¨cð 8°h¸tÀCÈÀH¹~Ñ6Nó 8ð5¨4°°S°©>ð 5¸dÀ3ÈÀ8¹nó 5ð°sð ¸tÀDÈÈcÈÁNÑ?Só ð¨cð °dô r   r€   c                   ó‚   — e Zd Zdedededededededed	eeef   fd
+„Zded	eeeef      fd„Z	ded	e
+eeef      fd
+„Zy)ÚSoftwareFileDBr£   ÚfilenameÚoriginal_filenamer   Ú	file_sizeÚos_typeÚarchitectureÚ	file_typer   c	           	      ó<   — ||||||||dœ}	| j                  d|	«      S )zCreate a software file entry)r£   r¸   r¹   r   rº   r»   r¼   r½   Úsoftware_filesrl   )
+r   r£   r¸   r¹   r   rº   r»   r¼   r½   Ú	file_datas
+             r   Úcreate_software_filez#SoftwareFileDB.create_software_file  s7   € ð
+ 'Ø Ø!2Ø"Ø"ØØ(Ø"ñ	
+ˆ	ð {‰{Ð+¨YÓ7Ð7r   c                 ó*   — | j                  dd|i«      S )zGet all files for a softwarer¿   r£   rC   r¥   s     r   Úget_files_by_software_idz'SoftwareFileDB.get_files_by_software_id&  s   € ày‰yÐ)¨M¸;Ð+GÓHÐHr   Úfile_idc                 ó&   — | j                  d|«      S )zGet file by IDr¿   rz   )r   rÄ   s     r   Úget_file_by_idzSoftwareFileDB.get_file_by_id*  s   € à‰Ð/°Ó9Ð9r   N)r]   r^   r_   r;   ra   r   r   rÁ   r   rÃ   r   rÆ   rb   r   r   r·   r·     s˜   „ ð8°ð 8¸sð 8ÐWZð 8Ø&)ð8Ø69ð8ØDGð8à),ð8à9<ð8àAEÀcÈ3ÀhÁó8ð I°Cð I¸DÀÀcÈ3ÀhÁÑ<Pó Ið: cð :¨h°t¸CÀ¸H±~Ñ.Fô :r   r·   c                   ój   — e Zd Zd	dedededeeef   fd„Zdedeeeef      fd„Zdedeeef   fd„Z	y)
+Ú
+DownloadDBNr£   rÄ   Ú
+ip_addressr   c                 ót   — |||t        j                  «       j                  «       dœ}| j                  d|«      S )zCreate a download record)r£   rÄ   rÉ   Ú
+download_dateÚ	downloads)r   Úutcnowr5   r7   )r   r£   rÄ   rÉ   Ú
+download_datas        r   Úcreate_downloadzDownloadDB.create_download0  s:   € ð 'ØØ$Ü%Ÿ_™_Ó.×8Ñ8Ó:ñ	
+ˆ
+ð {‰{˜;¨
+Ó6Ð6r   c                 ó*   — | j                  dd|i«      S )z Get all downloads for a softwarerÌ   r£   rC   r¥   s     r   Úget_downloads_by_software_idz'DownloadDB.get_downloads_by_software_id:  s   € ày‰y˜ }°kÐ&BÓCÐCr   c                 ó   — | j                  |«      }|sdddœS t        |d„ d¬«      }t        |«      |d   j                  d«      dœS )z&Get download statistics for a softwarer   N)Útotal_downloadsÚ
+last_downloadc                 ó&   — | j                  dd«      S )NrË   r™   rš   r›   s    r   r   z/DownloadDB.get_download_stats.<locals>.<lambda>E  s   € ¸1¿5¹5ÀÐRTÓ;U€ r   Trž   rË   )rÑ   r    rV   rG   )r   r£   rÌ   Úsorted_downloadss       r   Úget_download_statszDownloadDB.get_download_stats>  sY   € à×5Ñ5°kÓBˆ	ÙØ'(¸4Ñ@Ð@ô " )Ñ1UÐ_cÔdÐô  # 9›~Ø-¨aÑ0×4Ñ4°_ÓEñ
+ð 	
+r   r[   )
+r]   r^   r_   r;   r   r   rÏ   r   rÑ   r×   rb   r   r   rÈ   rÈ   /  sn   „ ñ7¨3ð 7¸ð 7È#ð 7ÐY]Ð^aÐcfÐ^fÑYgó 7ðD¸ð DÀÀTÈ#ÈsÈ(Á^Ñ@Tó Dð
+¨cð 
+°d¸3À¸8±nô 
+r   rÈ   c                   ó,   ‡ — e Zd Zdˆ fd„	Zdefd„Zˆ xZS )ÚDatabasec                 ó$   •— t         ‰|   |«       y r[   )Úsuperr   )r   r   Ú	__class__s     €r   r   zDatabase.__init__N  s   ø€ Ü
+‰Ñ˜Õ"r   r   c                 óT   — 	 | j                  d«      }|j                  «       S #  Y yxY w)z*Test if the database connection is workingrk   F)r   r   )r   Ú
+users_files     r   Útest_connectionzDatabase.test_connectionQ  s0   € ð	à×,Ñ,¨WÓ5ˆJØ×$Ñ$Ó&Ð&øð	Ùús   ‚ # £')zSmallerDB/data)r]   r^   r_   r   r`   rß   Ú
+__classcell__)rÜ   s   @r   rÙ   rÙ   M  s   ø„ õ#ð ÷ r   rÙ   )r    Úosr   Útypingr   r   r   r   Úpathlibr   r
+   rd   r€   r·   rÈ   rÙ   rb   r   r   ú<module>rä      sl   ðÛ Û 	Ý ß ,Ó ,Ý ÷D3ñ D3ôN"@ˆYô "@ôJ_ô _ôD:Yô :ô4
+ô 
+ô<ˆvz >°:õ r   
+  </p>
+</body>
+</html>

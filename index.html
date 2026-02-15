@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIOPS Soft Solutions</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            
+        }
+
+        body {
+            font-family:  Tahoma;
+            overflow-x: hidden;
+           
+            min-height: 100vh;
+        }
+
+        /* Main Content */
+        .main-content {
+            padding: 20px;
+            transition: margin-left 0.3s ease, margin-right 0.3s ease;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: black;
+            text-align: center;
+            position: relative;
+            z-index: 10;
+        }
+
+        .main-content.shift-left {
+            margin-left: 280px;
+        }
+
+        .main-content.shift-right {
+            margin-right: 280px;
+        }
+
+        .main-content.shift-both {
+            margin-left: 280px;
+            margin-right: 280px;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .keyboard-shortcuts {
+            background: transparent;
+            padding: 20px 30px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            /* backdrop-filter: blur(5px); */
+        }
+
+        .keyboard-shortcuts h3 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            opacity: 0.9;
+        }
+
+        .shortcut-item {
+            display: inline-flex;
+            align-items: center;
+            margin: 8px 15px;
+            padding: 8px 12px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            gap: 8px;
+        }
+
+        .shortcut-item:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .shortcut-item:active {
+            transform: translateY(1px);
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .keyboard-key {
+            position: relative;
+            display: inline-block;
+            min-width: 35px;
+            height: 35px;
+            padding: 4px 8px;
+            font-weight: bold;
+            color: #1a1a1a;
+            background: linear-gradient(145deg, #f0f0f0, #e0e0e0);
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            text-align: center;
+            line-height: 1.2;
+            box-shadow: 
+                0 2px 4px rgba(0,0,0,0.1),
+                inset 0 1px 0 rgba(255,255,255,0.8),
+                inset 0 -1px 0 rgba(0,0,0,0.1);
+            font-size: 12px;
+            transition: all 0.1s ease;
+            cursor: pointer;
+        }
+
+        .keyboard-key::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, transparent 50%, rgba(0,0,0,0.05) 100%);
+            border-radius: 5px;
+            pointer-events: none;
+        }
+
+        .keyboard-key:hover {
+           
+            transform: translateY(-1px);
+            box-shadow: 
+                0 4px 8px rgba(0,0,0,0.15),
+                inset 0 1px 0 rgba(255,255,255,0.9),
+                inset 0 -1px 0 rgba(0,0,0,0.15);
+        }
+
+        .keyboard-key:active, .shortcut-item:active .keyboard-key {
+            background: linear-gradient(145deg, #e8e8e8, #d8d8d8);
+            transform: translateY(1px);
+            box-shadow: 
+                0 1px 2px rgba(0,0,0,0.1),
+                inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+
+        .plus-sign {
+            font-weight: normal;
+            color: #666;
+            margin: 0 2px;
+            font-size: 14px;
+        }
+
+        /* Navigation Bars */
+        .nav-sidebar {
+            position: fixed;
+            top: 0;
+            width: 280px;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+           
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            z-index: 100;
+            overflow-y: auto;
+        }
+
+        .nav-sidebar.left {
+            left: 0;
+            transform: translateX(-100%);
+        }
+
+        .nav-sidebar.right {
+            right: 0;
+            transform: translateX(100%);
+        }
+
+        .nav-sidebar.active {
+            transform: translateX(0);
+        }
+
+        .nav-header1 {
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #313131 0%, #918c97 100%);
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-header1 h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+
+
+
+.nav-header2 {
+            padding: 25px 20px;
+            background: linear-gradient(135deg, #918c97 0%,  #313131 100%);
+            color: white;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .nav-header2 h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: right;
+        }
+
+
+        .nav-menu {
+            padding: 20px 0;
+        }
+
+        .nav-item {
+            display: block;
+            padding: 15px 25px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border-left: 3px solid transparent;
+            font-weight: 500;
+            position: relative;
+        }
+
+        .nav-item:hover {
+            background: rgba(49, 49, 49, 0.1);
+            border-left-color: #313131;
+            color: #313131;
+            transform: translateX(5px);
+        }
+
+        .nav-item.active {
+            background: rgba(49, 49, 49, 0.15);
+            border-left-color: #313131;
+            color: #313131;
+        }
+
+        /* Dropdown Styles */
+        .dropdown {
+            position: relative;
+        }
+
+        .dropdown-toggle {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .dropdown-toggle::after {
+            content: '▼';
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .dropdown.active .dropdown-toggle::after {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            background: rgba(49, 49, 49, 0.05);
+        }
+
+        .dropdown.active .dropdown-menu {
+            max-height: 300px;
+        }
+
+        .dropdown-item {
+            display: block;
+            padding: 12px 25px 12px 40px;
+            color: #555;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            border-left: 3px solid transparent;
+        }
+
+        .dropdown-item:hover {
+            background: rgba(49, 49, 49, 0.1);
+            border-left-color: #313131;
+            color: #313131;
+            transform: translateX(3px);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-sidebar {
+                width: 250px;
+            }
+
+            .main-content.shift-left {
+                margin-left: 0;
+            }
+
+            .main-content.shift-right {
+                margin-right: 0;
+            }
+
+            .main-content.shift-both {
+                margin-left: 0;
+                margin-right: 0;
+            }
+
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-sidebar {
+                width: 100%;
+            }
+        }
+
+        /* Cheat Popup Styles */
+        .cheat-popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            min-width: 350px;
+            text-align: center;
+            border: 2px solid #3498db;
+        }
+
+        .cheat-popup h3 {
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            color: #3498db;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .cheat-popup p {
+            margin-bottom: 25px;
+            font-size: 1rem;
+            line-height: 1.4;
+            opacity: 0.9;
+        }
+
+        .cheat-buttons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .cheat-btn {
+            padding: 12px 20px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .cheat-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9 0%, #21618c 100%);
+        }
+
+        .cheat-btn:active {
+            transform: translateY(0);
+            box-shadow: 0 2px 10px rgba(52, 152, 219, 0.3);
+        }
+
+        .cheat-btn.danger {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+        }
+
+        .cheat-btn.danger:hover {
+            background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .close-popup {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            background: none;
+            border: none;
+            color: #ecf0f1;
+            font-size: 24px;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .close-popup:hover {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <!-- Canvas container for Three.js animation -->
+    <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: pointer;"></div>
+    
+    <!-- Left Navigation Sidebar -->
+    <nav class="nav-sidebar left" id="leftNav">
+        <div class="nav-header1">
+            <h2>Navigation</h2>
+        </div>
+        <div class="nav-menu">
+            <a href="about.html" class="nav-item">About</a>
+            <a href="pricing.html" class="nav-item">Pricing</a>
+            <a href="contact.html" class="nav-item">Contact</a>
+            <div class="dropdown">
+                <a href="services.html" class="nav-item dropdown-toggle">Services</a>
+                <div class="dropdown-menu">
+                    <a href="services.html#services" class="dropdown-item">Web Development</a>
+                    <a href="services.html#services" class="dropdown-item">Desktop App Development</a>
+                    <a href="services.html#services" class="dropdown-item">LMS Development</a>
+                   
+                    <a href="services.html#services" class="dropdown-item">Local Area Networks</a>
+                    <a href="services.html#services" class="dropdown-item">Programming Translations</a>
+                    <a href="services.html#services" class="dropdown-item">Progressive Web App Development</a>
+                </div>
+            </div>
+            <div class="dropdown">
+                <a href="tools.html" class="nav-item dropdown-toggle">Tools</a>
+                <div class="dropdown-menu">
+                    <!-- <a href="#web-opt" class="dropdown-item">Website Optimizer/Builder</a> -->
+                   <a href="https://gitlab.com/groupz8894907/paranet-lite/-/tree/f99209fb8b7670f626bd1de2afa414dc6a532230/" class="dropdown-item">Paranet lite</a>
+                    <!-- <a href="#dml" class="dropdown-item">Directed Markup Language</a> -->
+                    <a href="https://gitlab.com/groupz8894907/tts-stt/-/tree/9242efb70971aa92cb621c5f9f3d8bba05138fb1/" class="dropdown-item">TTS/STT converter</a>
+                    
+                    <a href="https://gitlab.com/groupz8894907/boulder/-/tree/7fa4006f7c183b7a57fd6710f70063e0dcf0375c/" class="dropdown-item">Boulder - Code Explainer</a>
+                    <a href="https://gitlab.com/groupz8894907/software-dispatch-network/-/tree/29a5cbc27d03b13df968909a9fd7cc967cf067fa/" class="dropdown-item">Software Dispatch Network</a>
+                </div>
+            </div>
+            <!-- <a href="#catalog" class="nav-item">Catalog</a> -->
+            <!-- <a href="#security" class="nav-item">Security and Management systems</a> -->
+            <!-- <a href="#privacy" class="nav-item">User and Privacy policies</a>
+            <a href="#legal" class="nav-item">Legal</a> -->
+        </div>
+    </nav>
+
+    <!-- Right Navigation Sidebar -->
+    <nav class="nav-sidebar right" id="rightNav">
+        <div class="nav-header2">
+            <h2>Navigation</h2>
+        </div>
+        <div class="nav-menu">
+            <a href="privacy.html" class="nav-item">Privacy Policy</a>
+            <a href="user-policy.html" class="nav-item">User Policy</a>
+            <!-- <a href="#contact" class="nav-item">Complaints</a> -->
+            
+            <!-- <div class="dropdown">
+                <a href="#services" class="nav-item dropdown-toggle">Services ▼</a>
+                <div class="dropdown-menu">
+                    <a href="#web-development" class="dropdown-item">Web Development</a>
+                    <a href="#mobile-apps" class="dropdown-item">Mobile Applications</a>
+                    <a href="#cloud-solutions" class="dropdown-item">Cloud Solutions</a>
+                    <a href="#data-analytics" class="dropdown-item">Data Analytics</a>
+                    <a href="#ai-integration" class="dropdown-item">AI Integration</a>
+                </div> -->
+            <!-- </div> -->
+            <!-- <div class="dropdown">
+                <a href="#tools" class="nav-item dropdown-toggle">Socials</a>
+                <div class="dropdown-menu">
+                    <a href="#reddit" class="dropdown-item">Reddit</a>
+                    <a href="#mastodon" class="dropdown-item">Mastodon</a>
+                    <a href="#bluesky" class="dropdown-item">Bluesky</a>
+                    <a href="#github" class="dropdown-item">Github</a>
+                    
+                </div>
+            </div> -->
+            <!-- <a href="#catalog" class="nav-item">Portfolio</a> -->
+            <!-- <a href="#security" class="nav-item">Github</a>
+            <a href="#privacy" class="nav-item"></a> -->
+          <a href="legal.html" class="nav-item">Legal</a>
+            <!-- <a href="research/index.html" class="nav-item">Research</a> -->
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <div class="hero-content">
+
+            <br>
+            <br>
+            <h1>Welcome to SIOPS Soft Solutions</h1>
+           
+            <p>Your trusted partner for innovative software solutions and digital transformation</p>
+           
+             <div class="keyboard-shortcuts">
+                <h3>Use the following keys to navigate</h3>
+                <div class="shortcut-item" onclick="toggleLeftNav()">
+                    <span class="keyboard-key">Ctrl+L</span>
+                    <span style="margin-left: 8px;"></span>
+                </div>
+                <div class="shortcut-item" onclick="toggleRightNav()">
+                    <span class="keyboard-key">Ctrl+R</span>
+                    <span style="margin-left: 8px;"></span>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Cheat Popup -->
+    <div id="cheatPopup" class="cheat-popup">
+        <button class="close-popup" onclick="toggleCheatPopup()">&times;</button>
+        <h3>Control Panel</h3>
+        <p id="cheatMessage">Click "Enable Cheat" to activate cheat codes.</p>
+        <div class="cheat-buttons">
+            <button id="cheatToggleBtn" class="cheat-btn" onclick="enableCheat()">Enable Cheat</button>
+            <button id="animToggleBtn" class="cheat-btn danger" onclick="removeAnimation()">Remove Animation</button>
+        </div>
+    </div>
+
+    <script>
+        // Navigation functionality
+        const leftNav = document.getElementById('leftNav');
+        const rightNav = document.getElementById('rightNav');
+        const mainContent = document.getElementById('mainContent');
+        const navItems = document.querySelectorAll('.nav-item');
+        const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+
+        // Update main content margins based on active navigation
+        function updateMainContentMargins() {
+            const leftActive = leftNav.classList.contains('active');
+            const rightActive = rightNav.classList.contains('active');
+            
+            mainContent.classList.remove('shift-left', 'shift-right', 'shift-both');
+            
+            if (leftActive && rightActive) {
+                mainContent.classList.add('shift-both');
+            } else if (leftActive) {
+                mainContent.classList.add('shift-left');
+            } else if (rightActive) {
+                mainContent.classList.add('shift-right');
+            }
+        }
+
+        // Toggle left navigation (with mutual exclusion)
+        function toggleLeftNav() {
+            const isActive = leftNav.classList.contains('active');
+            
+            if (isActive) {
+                leftNav.classList.remove('active');
+            } else {
+                // Close right nav if it's open
+                rightNav.classList.remove('active');
+                // Open left nav
+                leftNav.classList.add('active');
+            }
+            
+            updateMainContentMargins();
+        }
+
+        // Toggle right navigation (with mutual exclusion)
+        function toggleRightNav() {
+            const isActive = rightNav.classList.contains('active');
+            
+            if (isActive) {
+                rightNav.classList.remove('active');
+            } else {
+                // Close left nav if it's open
+                leftNav.classList.remove('active');
+                // Open right nav
+                rightNav.classList.add('active');
+            }
+            
+            updateMainContentMargins();
+        }
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Check if Ctrl key is pressed
+            if (e.ctrlKey) {
+                switch(e.key.toLowerCase()) {
+                    case 'l':
+                        e.preventDefault();
+                        toggleLeftNav();
+                        break;
+                    case 'r':
+                        e.preventDefault();
+                        toggleRightNav();
+                        break;
+                }
+            }
+            
+            // Check if Shift+T is pressed for cheat popup
+            if (e.shiftKey && e.key.toLowerCase() === 't') {
+                e.preventDefault();
+                toggleCheatPopup();
+            }
+            
+            // Handle scatter cheat code when enabled
+            if (cheatEnabled && !e.ctrlKey) {
+                cheatInput += e.key.toLowerCase();
+                if (cheatInput.includes('scatter')) {
+                    if (particleSystem && !isScattered) {
+                        scatterParticles();
+                    }
+                    cheatInput = '';
+                }
+                // Reset if input gets too long
+                if (cheatInput.length > 20) {
+                    cheatInput = '';
+                }
+            }
+            
+            // Close navigation with Escape key
+            if (e.key === 'Escape') {
+                leftNav.classList.remove('active');
+                rightNav.classList.remove('active');
+                updateMainContentMargins();
+            }
+        });
+
+        // Handle dropdown toggles
+        dropdownToggles.forEach(toggle => {
+            toggle.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const dropdown = toggle.parentElement;
+                const isActive = dropdown.classList.contains('active');
+                
+                // Close all other dropdowns in the same nav
+                const parentNav = dropdown.closest('.nav-sidebar');
+                parentNav.querySelectorAll('.dropdown').forEach(d => {
+                    if (d !== dropdown) {
+                        d.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current dropdown
+                dropdown.classList.toggle('active');
+            });
+        });
+
+        // Handle navigation item clicks (excluding dropdown toggles)
+        navItems.forEach(item => {
+            if (!item.classList.contains('dropdown-toggle')) {
+                item.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Remove active class from all items in both navs
+                    navItems.forEach(navItem => navItem.classList.remove('active'));
+                    
+                    // Add active class to clicked item and its counterpart
+                    const href = item.getAttribute('href');
+                    document.querySelectorAll(`.nav-item[href="${href}"]`).forEach(navItem => {
+                        navItem.classList.add('active');
+                    });
+                    
+                    // Here you can add logic to show/hide content based on the section
+                    console.log(`Navigating to: ${href.substring(1)}`);
+                    
+                    // Optional: Close navigation on mobile after selection
+                    if (window.innerWidth <= 768) {
+                        setTimeout(() => {
+                            leftNav.classList.remove('active');
+                            rightNav.classList.remove('active');
+                            updateMainContentMargins();
+                        }, 300);
+                    }
+                });
+            }
+        });
+
+        // Handle dropdown item clicks
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Remove active class from all items
+                navItems.forEach(navItem => navItem.classList.remove('active'));
+                dropdownItems.forEach(dropdownItem => dropdownItem.classList.remove('active'));
+                
+                // Add active class to clicked item
+                item.classList.add('active');
+                
+                const href = item.getAttribute('href').substring(1);
+                console.log(`Navigating to: ${href}`);
+                
+                // Special handling for SDN link
+                if (href === 'sdn') {
+                    openSDNModal();
+                }
+                
+                // Optional: Close navigation on mobile after selection
+                if (window.innerWidth <= 768) {
+                    setTimeout(() => {
+                        leftNav.classList.remove('active');
+                        rightNav.classList.remove('active');
+                        updateMainContentMargins();
+                    }, 300);
+                }
+            });
+        });
+
+        // Close navigation when clicking outside
+        document.addEventListener('click', (e) => {
+            // Check if click is on keyboard shortcut buttons
+            if (e.target.closest('.shortcut-item')) {
+                return; // Don't close if clicking on shortcut buttons
+            }
+            
+            // Check if click is outside both navigation bars
+            const clickedOutsideLeft = !leftNav.contains(e.target);
+            const clickedOutsideRight = !rightNav.contains(e.target);
+            
+            // If click is outside both navigation areas, close any open navigation
+            if (clickedOutsideLeft && clickedOutsideRight) {
+                leftNav.classList.remove('active');
+                rightNav.classList.remove('active');
+                updateMainContentMargins();
+            }
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            updateMainContentMargins();
+        });
+
+        // Cheat system variables
+        let cheatEnabled = localStorage.getItem('cheatEnabled') === 'true';
+        let cheatInput = '';
+        let animationEnabled = localStorage.getItem('animationEnabled') !== 'false'; // Default to true
+
+        // Initialize cheat system state
+        function initializeCheatSystem() {
+            // Apply saved animation state
+            if (particleSystem && !animationEnabled) {
+                particleSystem.visible = false;
+            }
+        }
+
+        // Toggle cheat popup
+        function toggleCheatPopup() {
+            const popup = document.getElementById('cheatPopup');
+            if (popup.style.display === 'block') {
+                popup.style.display = 'none';
+            } else {
+                popup.style.display = 'block';
+                updateCheatPopupButtons();
+            }
+        }
+
+        // Update popup buttons based on current state
+        function updateCheatPopupButtons() {
+            const cheatBtn = document.getElementById('cheatToggleBtn');
+            const animBtn = document.getElementById('animToggleBtn');
+            const message = document.getElementById('cheatMessage');
+            
+            if (cheatEnabled) {
+                cheatBtn.textContent = 'Disable Cheat';
+                cheatBtn.onclick = disableCheat;
+                message.textContent = 'Cheat is enabled. Type "scatter" to scatter particles.';
+            } else {
+                cheatBtn.textContent = 'Enable Cheat';
+                cheatBtn.onclick = enableCheat;
+                message.textContent = 'Click "Enable Cheat" to activate cheat codes.';
+            }
+            
+            if (animationEnabled) {
+                animBtn.textContent = 'Remove Animation';
+                animBtn.onclick = removeAnimation;
+            } else {
+                animBtn.textContent = 'Enable Animation';
+                animBtn.onclick = enableAnimation;
+            }
+        }
+
+        // Enable cheat
+        function enableCheat() {
+            cheatEnabled = true;
+            cheatInput = '';
+            localStorage.setItem('cheatEnabled', 'true');
+            updateCheatPopupButtons();
+        }
+
+        // Disable cheat
+        function disableCheat() {
+            cheatEnabled = false;
+            cheatInput = '';
+            localStorage.setItem('cheatEnabled', 'false');
+            updateCheatPopupButtons();
+        }
+
+        // Remove animation
+        function removeAnimation() {
+            animationEnabled = false;
+            localStorage.setItem('animationEnabled', 'false');
+            if (particleSystem) {
+                particleSystem.visible = false;
+            }
+            updateCheatPopupButtons();
+        }
+
+        // Enable animation
+        function enableAnimation() {
+            animationEnabled = true;
+            localStorage.setItem('animationEnabled', 'true');
+            if (particleSystem) {
+                particleSystem.visible = true;
+            }
+            updateCheatPopupButtons();
+        }
+    </script>
+
+
+<script>
+        // Three.js Scene Setup
+        let scene, camera, renderer, particles, particleSystem;
+        let isScattered = false;
+        let scatterTime = 0;
+        const scatterDuration = 60; // 60 seconds total
+        const burstDuration = 2; // 2 seconds for initial burst
+        const floatDuration = 55; // 55 seconds for floating
+        const reassembleDuration = 3; // 3 seconds for reassembly
+        let originalPositions = [];
+        let particleVelocities = [];
+        let currentPositions = [];
+        let mouse = new THREE.Vector2();
+        let raycaster = new THREE.Raycaster();
+
+        // Initialize scene
+        function init() {
+            const container = document.getElementById('canvas-container');
+            
+            // Scene
+            scene = new THREE.Scene();
+            scene.background = new THREE.Color(0xffffff);
+
+            // Camera
+            camera = new THREE.PerspectiveCamera(
+                75,
+                window.innerWidth / window.innerHeight,
+                0.1,
+                1000
+            );
+            camera.position.z = 5;
+
+            // Renderer
+            renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            container.appendChild(renderer.domElement);
+
+            // Create particle sphere
+            createParticleSphere();
+
+            // Event listeners
+            window.addEventListener('resize', onWindowResize);
+            container.addEventListener('click', onSphereClick);
+            container.addEventListener('mousemove', onMouseMove);
+
+            // Start animation
+            animate();
+        }
+
+        function createParticleSphere() {
+            const particleCount = 5000;
+            const radius = 1.5;
+            const geometry = new THREE.BufferGeometry();
+            const positions = new Float32Array(particleCount * 3);
+            const colors = new Float32Array(particleCount * 3);
+
+            // Create tightly packed particles in sphere formation
+            for (let i = 0; i < particleCount; i++) {
+                const i3 = i * 3;
+                
+                // Spherical distribution with slight randomness for tight packing
+                const theta = Math.random() * Math.PI * 2;
+                const phi = Math.acos(2 * Math.random() - 1);
+                const r = radius * (0.95 + Math.random() * 0.1); // Tight packing variation
+
+                positions[i3] = r * Math.sin(phi) * Math.cos(theta);
+                positions[i3 + 1] = r * Math.sin(phi) * Math.sin(theta);
+                positions[i3 + 2] = r * Math.cos(phi);
+
+                // Black color variation
+                const brightness = 0.1 + Math.random() * 0.2; // Dark particles
+                colors[i3] = brightness;     // R
+                colors[i3 + 1] = brightness;  // G
+                colors[i3 + 2] = brightness;  // B
+
+                // Store original positions and initialize current positions
+                const pos = new THREE.Vector3(
+                    positions[i3],
+                    positions[i3 + 1],
+                    positions[i3 + 2]
+                );
+                originalPositions.push(pos.clone());
+                currentPositions.push(pos.clone());
+                particleVelocities.push(new THREE.Vector3(0, 0, 0));
+            }
+
+            geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+            geometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+            const material = new THREE.PointsMaterial({
+                size: 0.02,
+                vertexColors: true,
+                transparent: true,
+                opacity: 0.8,
+                blending: THREE.NormalBlending
+            });
+
+            particleSystem = new THREE.Points(geometry, material);
+            scene.add(particleSystem);
+        }
+
+        function onSphereClick(event) {
+            console.log('Canvas clicked! Event:', event); // Debug log
+            if (isScattered) {
+                console.log('Already scattered, ignoring click');
+                return;
+            }
+
+            // Calculate sphere's screen position
+            const sphereWorldPosition = new THREE.Vector3(0, 0, 0); // Sphere is at origin
+            sphereWorldPosition.project(camera);
+            
+            // Convert to screen coordinates
+            const screenX = (sphereWorldPosition.x * 0.5 + 0.5) * window.innerWidth;
+            const screenY = (-sphereWorldPosition.y * 0.5 + 0.5) * window.innerHeight;
+            
+            // Calculate distance from click to sphere center
+            const clickX = event.clientX;
+            const clickY = event.clientY;
+            const distance = Math.sqrt(Math.pow(clickX - screenX, 2) + Math.pow(clickY - screenY, 2));
+            
+            console.log(`Click distance from sphere center: ${distance.toFixed(2)}px`);
+            
+            // Check if click is within 150px radius
+            if (distance <= 150) {
+                console.log('Click within 3000px radius - scattering particles!');
+                scatterParticles();
+            } else {
+                console.log('Click outside 150px radius - ignoring');
+            }
+        }
+
+        function scatterParticles() {
+            console.log('Scattering particles!'); // Debug log
+            isScattered = true;
+            scatterTime = 0;
+
+            // Give each particle a burst velocity outward from center
+            for (let i = 0; i < originalPositions.length; i++) {
+                const pos = currentPositions[i];
+                const direction = pos.clone().normalize();
+                
+                // Burst velocity: strong initial push outward with some randomness
+                const burstSpeed = 0.15 + Math.random() * 0.1;
+                const randomFactor = 0.3; // Add randomness to direction
+                
+                particleVelocities[i].set(
+                    direction.x * burstSpeed + (Math.random() - 0.5) * randomFactor,
+                    direction.y * burstSpeed + (Math.random() - 0.5) * randomFactor,
+                    direction.z * burstSpeed + (Math.random() - 0.5) * randomFactor
+                );
+            }
+        }
+
+        function onMouseMove(event) {
+            const rect = renderer.domElement.getBoundingClientRect();
+            mouse.x = ((event.clientX - rect.left) / rect.width) * 2 - 1;
+            mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
+        }
+
+        function animate() {
+            requestAnimationFrame(animate);
+
+            const time = Date.now() * 0.001;
+            const deltaTime = 0.016; // ~60fps
+            const positions = particleSystem.geometry.attributes.position.array;
+
+            if (!isScattered) {
+                // Oscillating/humming animation
+                for (let i = 0; i < originalPositions.length; i++) {
+                    const i3 = i * 3;
+                    const pos = originalPositions[i];
+                    const oscillation = Math.sin(time * 2 + i * 0.01) * 0.05;
+                    
+                    const currentPos = pos.clone();
+                    currentPos.x += oscillation;
+                    currentPos.y += oscillation;
+                    currentPos.z += oscillation;
+                    
+                    currentPositions[i].copy(currentPos);
+                    positions[i3] = currentPos.x;
+                    positions[i3 + 1] = currentPos.y;
+                    positions[i3 + 2] = currentPos.z;
+                }
+            } else {
+                // Dynamic scatter and recombine animation
+                scatterTime += deltaTime;
+                const progress = Math.min(scatterTime / scatterDuration, 1);
+                
+                for (let i = 0; i < originalPositions.length; i++) {
+                    const i3 = i * 3;
+                    const currentPos = currentPositions[i];
+                    const originalPos = originalPositions[i];
+                    const velocity = particleVelocities[i];
+                    
+                    if (scatterTime < burstDuration) {
+                        // Burst phase: particles move outward with velocity, decelerate
+                        const deceleration = 0.95; // Slow down over time
+                        velocity.multiplyScalar(deceleration);
+                        currentPos.add(velocity.clone().multiplyScalar(deltaTime * 60));
+                        
+                        // Add slight random drift
+                        velocity.x += (Math.random() - 0.5) * 0.001;
+                        velocity.y += (Math.random() - 0.5) * 0.001;
+                        velocity.z += (Math.random() - 0.5) * 0.001;
+                    } else if (scatterTime < burstDuration + floatDuration) {
+                        // Float phase: particles drift slowly
+                        const floatSpeed = 0.002;
+                        velocity.x += (Math.random() - 0.5) * floatSpeed;
+                        velocity.y += (Math.random() - 0.5) * floatSpeed;
+                        velocity.z += (Math.random() - 0.5) * floatSpeed;
+                        
+                        // Damping to keep movement slow
+                        velocity.multiplyScalar(0.98);
+                        currentPos.add(velocity.clone().multiplyScalar(deltaTime * 60));
+                    } else {
+                        // Reassemble phase: gradually pull particles back to original position
+                        const reassembleProgress = (scatterTime - burstDuration - floatDuration) / reassembleDuration;
+                        const pullStrength = 0.02 + reassembleProgress * 0.08; // Increasing pull strength
+                        
+                        const direction = originalPos.clone().sub(currentPos).normalize();
+                        const distance = currentPos.distanceTo(originalPos);
+                        
+                        // Apply pull force
+                        velocity.add(direction.multiplyScalar(pullStrength * distance));
+                        
+                        // Damping to smooth the approach
+                        velocity.multiplyScalar(0.92);
+                        currentPos.add(velocity.clone().multiplyScalar(deltaTime * 60));
+                        
+                        // If very close, snap to position
+                        if (distance < 0.1) {
+                            currentPos.copy(originalPos);
+                            velocity.set(0, 0, 0);
+                        }
+                    }
+                    
+                    positions[i3] = currentPos.x;
+                    positions[i3 + 1] = currentPos.y;
+                    positions[i3 + 2] = currentPos.z;
+                }
+
+                // Reset when recombination is complete
+                if (progress >= 1) {
+                    isScattered = false;
+                    scatterTime = 0;
+                    // Reset all particles to original positions
+                    for (let i = 0; i < originalPositions.length; i++) {
+                        currentPositions[i].copy(originalPositions[i]);
+                        particleVelocities[i].set(0, 0, 0);
+                    }
+                }
+            }
+
+            particleSystem.geometry.attributes.position.needsUpdate = true;
+
+            // Slow rotation
+            particleSystem.rotation.y += 0.001;
+
+            // Camera subtle movement
+            camera.position.x = Math.sin(time * 0.1) * 0.2;
+            camera.position.y = Math.cos(time * 0.15) * 0.2;
+            camera.lookAt(scene.position);
+
+            renderer.render(scene, camera);
+        }
+
+        function onWindowResize() {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        }
+
+        // Initialize when page loads
+        init();
+        initializeCheatSystem();
+    </script>
+</body>
+</html>
