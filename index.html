@@ -412,12 +412,78 @@
         .close-popup:hover {
             color: #e74c3c;
         }
+
+        /* ============================================================
+           CAPTCHA GATE STYLES — START
+           Fullscreen overlay that blocks the site until Turnstile passes
+           ============================================================ */
+        #captcha-gate {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2c2c2c 100%);
+            z-index: 99999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        #captcha-gate h2 {
+            color: #ffffff;
+            font-family: Tahoma;
+            font-size: 1.6rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        #captcha-gate p {
+            color: #aaaaaa;
+            font-family: Tahoma;
+            font-size: 0.95rem;
+        }
+
+        #captcha-gate.hidden {
+            display: none;
+        }
+        /* ============================================================
+           CAPTCHA GATE STYLES — END
+           ============================================================ */
     </style>
+
+    <!-- ============================================================
+         CAPTCHA SCRIPT — START
+         Loads the Cloudflare Turnstile widget
+         ============================================================ -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <!-- ============================================================
+         CAPTCHA SCRIPT — END
+         ============================================================ -->
 </head>
 <body>
 
-<div class="cf-turnstile" data-sitekey="0x4AAAAAADo9Yy3U2kZbdwyz"></div>
-    
+    <!-- ============================================================
+         CAPTCHA GATE — START
+         This overlay covers the entire page. It is removed automatically
+         once Cloudflare Turnstile confirms the visitor is human.
+         The callback "onTurnstileSuccess" is triggered by Turnstile.
+         ============================================================ -->
+    <div id="captcha-gate">
+        <h2>SIOPS Soft Solutions</h2>
+        <p>Please verify you are human to continue</p>
+        <div class="cf-turnstile"
+             data-sitekey="0x4AAAAAADo9Yy3U2kZbdwyz"
+             data-callback="onTurnstileSuccess"
+             data-theme="dark">
+        </div>
+    </div>
+    <!-- ============================================================
+         CAPTCHA GATE — END
+         ============================================================ -->
+
     <!-- Canvas container for Three.js animation -->
     <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: pointer;"></div>
     
@@ -536,11 +602,23 @@
         </div>
     </div>
 
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-<script>function isTurnstileVerified() {
-    const response = document.querySelector('[name="cf-turnstile-response"]');
-    return response && response.value !== '';
-}</script>
+    <!-- ============================================================
+         CAPTCHA CALLBACK — START
+         onTurnstileSuccess() is called automatically by Cloudflare
+         Turnstile once the visitor passes verification.
+         It removes the fullscreen gate, revealing the site beneath.
+         ============================================================ -->
+    <script>
+        function onTurnstileSuccess(token) {
+            const gate = document.getElementById('captcha-gate');
+            gate.classList.add('hidden');
+            console.log('[SIOPS Captcha] Verification passed. Gate removed.');
+        }
+    </script>
+    <!-- ============================================================
+         CAPTCHA CALLBACK — END
+         ============================================================ -->
+
     <script>
         // Navigation functionality
         const leftNav = document.getElementById('leftNav');
