@@ -603,20 +603,43 @@
     </div>
 
     <!-- ============================================================
-         CAPTCHA CALLBACK — START
-         onTurnstileSuccess() is called automatically by Cloudflare
-         Turnstile once the visitor passes verification.
-         It removes the fullscreen gate, revealing the site beneath.
+         CAPTCHA SESSION LOGIC — START
+
+         How it works:
+           - On page load, we check sessionStorage for 'siops_verified'.
+           - sessionStorage persists through reloads but is wiped when
+             the tab is closed or a new tab/address bar visit happens.
+           - If already verified → gate is instantly hidden, no captcha shown.
+           - If not verified → gate is shown, Turnstile widget loads.
+           - On passing → sessionStorage is set and gate is removed.
+
+         Result:
+           ✅ First visit to tab     → captcha shown
+           ✅ Reload                 → captcha skipped
+           ✅ New tab / new address  → captcha shown again
          ============================================================ -->
     <script>
+        (function checkCaptchaSession() {
+            if (sessionStorage.getItem('siops_verified') === 'true') {
+                // Already verified this session — hide gate immediately
+                const gate = document.getElementById('captcha-gate');
+                gate.classList.add('hidden');
+                console.log('[SIOPS Captcha] Session already verified. Gate skipped.');
+            }
+            // If not verified, gate stays visible and Turnstile widget loads normally
+        })();
+
         function onTurnstileSuccess(token) {
+            // Mark this tab session as verified
+            sessionStorage.setItem('siops_verified', 'true');
+            // Remove the gate
             const gate = document.getElementById('captcha-gate');
             gate.classList.add('hidden');
-            console.log('[SIOPS Captcha] Verification passed. Gate removed.');
+            console.log('[SIOPS Captcha] Verification passed. Session marked. Gate removed.');
         }
     </script>
     <!-- ============================================================
-         CAPTCHA CALLBACK — END
+         CAPTCHA SESSION LOGIC — END
          ============================================================ -->
 
     <script>
@@ -1196,3 +1219,6 @@
     </script>
 </body>
 </html>
+
+  
+       
