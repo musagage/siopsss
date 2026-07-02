@@ -413,10 +413,7 @@
             color: #e74c3c;
         }
 
-        /* ============================================================
-           CAPTCHA GATE STYLES — START
-           Fullscreen overlay that blocks the site until Turnstile passes
-           ============================================================ */
+        
         #captcha-gate {
             position: fixed;
             top: 0;
@@ -449,28 +446,16 @@
         #captcha-gate.hidden {
             display: none;
         }
-        /* ============================================================
-           CAPTCHA GATE STYLES — END
-           ============================================================ */
+        
     </style>
 
-    <!-- ============================================================
-         CAPTCHA SCRIPT — START
-         Loads the Cloudflare Turnstile widget
-         ============================================================ -->
+ 
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
-    <!-- ============================================================
-         CAPTCHA SCRIPT — END
-         ============================================================ -->
+  
 </head>
 <body>
 
-    <!-- ============================================================
-         CAPTCHA GATE — START
-         This overlay covers the entire page. It is removed automatically
-         once Cloudflare Turnstile confirms the visitor is human.
-         The callback "onTurnstileSuccess" is triggered by Turnstile.
-         ============================================================ -->
+   
     <div id="captcha-gate">
         <h2>SIOPS Soft Solutions</h2>
         <p>Please verify you are human to continue</p>
@@ -480,11 +465,7 @@
              data-theme="dark">
         </div>
     </div>
-    <!-- ============================================================
-         CAPTCHA GATE — END
-         ============================================================ -->
-
-    <!-- Canvas container for Three.js animation -->
+    
     <div id="canvas-container" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; cursor: pointer;"></div>
     
     <!-- Left Navigation Sidebar -->
@@ -518,7 +499,7 @@
                     
                     <a href="https://gitlab.com/groupz8894907/boulder/-/tree/7fa4006f7c183b7a57fd6710f70063e0dcf0375c/" class="dropdown-item">Boulder - Code Explainer</a>
                     <a href="https://gitlab.com/groupz8894907/software-dispatch-network/-/tree/29a5cbc27d03b13df968909a9fd7cc967cf067fa/" class="dropdown-item">Software Dispatch Network</a>
-                     <a href="https://gitlab.com/musakhanaa828/redtooth/-/tree/27465150a9d0785126c8c49d8cdddeb8c3ec5e10/" class="dropdown-item">Redtooth DEMO</a>
+                     <a href="https://gitlab.com/musakhanaa828/redtooth" class="dropdown-item">Redtooth DEMO</a>
                     <a href="https://gitlab.com/musakhanaa828/activity-tracker/-/tree/e904c1ccad8104a072d853e283e43c380139b4ff/" class="dropdown-item">Activity Tracker</a>
                 </div>
             </div>
