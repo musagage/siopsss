@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIOPS soft solutions</title>
+    <style>
+* {
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The outer bar spans 100% of the screen width */
+.top-bar {
+    width: 100%;
+    background-color: #4e73b7;
+    color: white;
+}
+
+/* Inner container pulls the logo and search bar toward the center */
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 1100px; /* Must match .nav-content to line up */
+    margin: 0 auto;    
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+/* Outer nav spans 100% of the screen width */
+.nav-bar {
+    width: 100%;
+    background-color: #f7f9fa; 
+    border-bottom: 1px solid #bbbbbb; /* Changed to bottom border for a cleaner look */
+}
+
+/* Inner nav container lines up the links perfectly under the logo */
+.nav-content {
+    width: 100%;
+    max-width: 1100px; /* Must match .top-bar-content to line up */
+    margin: 0 auto;
+    padding: 20px 20px; /* Moved padding here so links align with the logo padding */
+}
+a .nav-content {
+    color: #bbbbbb;
+}
+
+
+.cta-section {
+    text-align: center;
+    padding: 40px;
+    background: transparent;
+    color: black;
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.cta-section p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    
+}
+
+.cta-section h2 {
+    color: #313131;
+    border-bottom: none;
+}
+
+/* Shared structural constraints for primary page sections */
+.section {
+    background: white;
+    padding: 30px;
+    margin: 40px auto; 
+    width: 100%;       
+    max-width: 1000px; 
+}
+
+.section h2 {
+    color: #313131;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: #313131;
+    font-size: 1.4rem;
+    margin: 25px 0 15px 0;
+}
+
+.section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6; 
+}
+
+.service-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 25px;
+    margin: 30px 0;
+}
+
+.service-card {
+    background: #f7f9fa;
+    border: 1px solid #bbbbbb;
+    border-radius: 0;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card h3 {
+    color: #313131;
+    font-size: 1.3rem;
+}
+
+/* FIXED: Tech stack layout updated to pull to center just like .section */
+.tech-stack {
+    background: #f7f9fa;
+    padding: 30px;                /* Adjusted to match standard section spacing */
+    margin: 40px auto;            /* Centers it identically to the other main blocks */
+    width: 100%;
+    max-width: 1000px;            /* Forces identical boundaries as the Core Services section */
+    border: 1px solid #bbbbbb;    /* Clean bounding border */
+    border-radius: 0;
+}
+
+.tech-stack h2 {
+    color: #313131;
+    font-size: 1.8rem;
+}
+
+.tech-stack h3 {
+    color: #313131;
+    margin-bottom: 15px;
+}
+
+.tech-category {
+    margin-bottom: 20px;
+}
+
+.tech-category h4 {
+    color: #313131;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tech-item {
+    background: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    border: 1px solid #ddd;
+}
+
+ .main-footer {
+    width: 100%;
+    background-color: #4e73b7;
+    color: #ffffff;
+    padding: 60px 20px 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1000px; /* Keeps it matching your main sections */
+    margin: 0 auto;
+}
+
+/* Links Columns Grid */
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Horizontal Divider Line */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Trust Elements / Badges Section */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-badges span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Contact & Copyright Section */
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-contact-text {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-text">
+                    SIOPS soft solutions
+                </div>
+                
+                <div class="search-bar">
+                               <form class="search-hero-bar" action="search-query.html" method="GET">
+            <input type="search" name="q" id="searchHeroInput" placeholder="Search the site...">
+           <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button>
+        </form>
+                    <!-- <input type="search" name="srch" id="search" placeholder=" Search..."> 
+                    <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button> -->
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <a style="color: #161616; text-decoration: none;" href="index.html">Home</a> | <a style="color: #161616; text-decoration: none;" href="faqs.html">FAQs</a> | <a style="color: #161616; text-decoration: none;" href="about.html">About</a> | <a style="color: #161616; text-decoration: none;" href="pricing.html">Pricing</a> | <a style="color: #161616; text-decoration: none;" href="services.html">Services</a> | <a style="color: #161616; text-decoration: none;" href="contact.html">Contact</a> 
+            </div>
+        </nav>
+    </header>
+ <section class="section">
+            <h2>Why Choose Our Services?</h2>
+            <p>Our services cover a wide spectrum of digital solutions, including website and Progressive Web App (PWA) development, desktop applications, and local area networks (LANs) designed for fast, efficient communication with minimal latency — perfect for daily assignments, team collaborations, and instant messaging. We also specialize in Learning Management Systems (LMSs), legacy code modernization, and translation of code between programming languages, ensuring your existing software stays relevant and functional in today's tech landscape.</p>
+            
+            <p>Choosing our services is a smart decision for businesses, educational institutions, freelancers, or teams who want efficient, reliable, and fully customized solutions. We offer competitive pricing compared to the current Pakistani tech market, making high-quality software accessible without compromise.</p>
+            
+            <p>We believe in giving our clients full control over their applications, websites, and networks. Unlike subscription-based models, which can restrict ownership, our approach ensures that once the project is delivered, you retain complete access to your software, data, and source code.</p>
+            
+            <p>Quality is at the core of everything we do. We don't develop software haphazardly with bugs and glitches. Instead, we treat software development as a craft, putting care, attention, and skill into every project. To make our work more engaging, we often include "souvenirs," Easter eggs, and interactive props, adding a playful layer to efficient and practical solutions.</p>
+            
+            <p>We also provide post-delivery support, helping clients with issues after deployment. However, once the source code has been delivered and paid for, we cannot accept liability for any modifications, corruption, or damages — responsibility for the source code thereafter lies with the client.</p>
+        </section>
+
+        <section id="services" class="section">
+            <h2>Our Core Services</h2>
+            <div class="service-grid">
+                <div class="service-card">
+                    <h3>Website & PWA Development</h3>
+                    <p>Custom websites and Progressive Web Applications built with modern technologies for optimal performance and user experience.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Desktop Applications</h3>
+                    <p>Native desktop applications tailored to your specific business needs, delivered as extractable files with full installation support.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Local Area Networks</h3>
+                    <p>High-performance LAN solutions designed for fast, efficient communication with minimal latency, perfect for team collaboration and instant messaging.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Learning Management Systems</h3>
+                    <p>Comprehensive LMS platforms for educational institutions, from basic course delivery to advanced learning analytics.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Legacy Code Modernization</h3>
+                    <p>Update and modernize your existing software to work with current technologies while preserving functionality.</p>
+                </div>
+                
+                <div class="service-card">
+                    <h3>Programming Language Translation</h3>
+                    <p>Convert your existing code between different programming languages while maintaining core logic and functionality.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <h2 style="margin-bottom: 40px;">Our Technology Stack</h2>
+            
+            <div class="tech-category">
+                <h4>Websites & PWAs:</h4>
+                <div class="tech-list">
+                    <span class="tech-item">JavaScript</span>
+                    <span class="tech-item">HTML</span>
+                    <span class="tech-item">CSS</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">PHP</span>
+                    <span class="tech-item">Laravel</span>
+                    <span class="tech-item">Node.js</span>
+                    <span class="tech-item">Flask</span>
+                    <span class="tech-item">PostgreSQL</span>
+                    <span class="tech-item">SmallerDB</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h4>Desktop Applications, LMS, and LAN Development:</h4>
+                <div class="tech-list">
+                    <span class="tech-item">PHP</span>
+                    <span class="tech-item">Python</span>
+                    <span class="tech-item">C++</span>
+                    <span class="tech-item">Rust</span>
+                </div>
+            </div>
+            
+            <div class="tech-category">
+                <h4>Version Control:</h4>
+                <div class="tech-list">
+                    <span class="tech-item" style="margin-bottom: 30px;">GIT</span>
+                </div>
+                <p>We use GIT to manage version control — essential for maintaining, updating, and releasing multiple builds over time.</p>
+            </div>
+        </section>
+
+
+       <section class="cta-section">
+            <h2>Our Commitment</h2>
+            <p style="margin-bottom: 40px;">We pride ourselves on delivering software that is not only functional and reliable but also fun, interactive, and thoughtfully crafted.<br> Every project is an opportunity to create something exceptional that meets your needs and exceeds your expectations.</p>
+            <a style="margin-right: 10px; color: #074ac5;" href="index.html" class="back-link">&larr; Back to Home</a>
+            <a style="color: #074ac5;" href="pricing.html" class="back-link">Click here to view different pricing plans</a>
+        </section>
+
+  <footer class="main-footer">
+        <div class="footer-inner">
+            
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h3>Useful Links</h3>
+                    <ul>
+                           <li><a href="tools.html">Open Source Tools</a></li>
+                        <li><a href="services.html">Software Development</a></li>
+                        <li><a href="pricing.html">Service plans</a></li>
+                        <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="footer-col">
+                    <h3>Contact Links</h3>
+                    <ul>
+                        <li><a href="contact.html">Email Us</a></li>
+                        <li><a href="tel:+923464524559">Call Us</a></li>
+                        <li><a href="https://www.x.com/iabdullah2026">Follow Us on X</a></li>
+                        <li><a href="www.linkedin.com/in/abdullah-m-ahmad-19b6ba417">Follow Us on Linkedin</a></li>
+                        <li><a href="https://substack.com/@abdullahahmad342251">Subscribe to Abdullah Ahmad's Substack</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="user-policy.html">User Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="legal.html">Legal Statement</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-badges">
+                <span><img style="width: 200px;" src="dddpp.svg" alt=""></span>
+               
+                <span><img style="width: 150px;" src="visa.svg" alt=""></span>
+                
+                <!-- <span>ESCROW.COM</span> -->
+            </div>
+
+            <div class="footer-bottom">
+              
+                <div class="footer-copyright">
+                    &copy; 2026 SIOPS Soft Solutions. All rights reserved. <br><br>
+                    <h6>Website last updated on July 10th 2026.</h6>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+        
+</body>
+</html>

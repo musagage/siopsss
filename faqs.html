@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs | SIOPS soft solutions</title>
+    <style>
+* {
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The outer bar spans 100% of the screen width */
+.top-bar {
+    width: 100%;
+    background-color: #4e73b7;
+    color: white;
+}
+
+/* Inner container pulls the logo and search bar toward the center */
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 1100px; /* Must match .nav-content to line up */
+    margin: 0 auto;    
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+/* Outer nav spans 100% of the screen width */
+.nav-bar {
+    width: 100%;
+    background-color: #f7f9fa; 
+    border-bottom: 1px solid #bbbbbb; /* Changed to bottom border for a cleaner look */
+}
+
+/* NEW: Inner nav container lines up the links perfectly under the logo */
+.nav-content {
+    width: 100%;
+    max-width: 1100px; /* Must match .top-bar-content to line up */
+    margin: 0 auto;
+    padding: 20px 20px; /* Moved padding here so links align with the logo padding */
+}
+a .nav-content {
+    color: #bbbbbb;
+}
+
+/* ===== FAQ Page Styles ===== */
+
+.faq-hero {
+    width: 100%;
+    background: white;
+    color: #161616;
+    padding: 70px 20px;
+    text-align: center;
+}
+
+.faq-hero span.faq-eyebrow {
+    display: inline-block;
+    font-size: 0.8rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #161616;
+    margin-bottom: 14px;
+}
+
+.faq-hero h1 {
+    font-size: 2.4rem;
+    margin-bottom: 14px;
+}
+
+.faq-hero p {
+    font-size: 1.05rem;
+    color: #161616;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+.faq-section {
+    width: 100%;
+    background: white;
+    padding: 60px 20px 90px 20px;
+}
+
+.faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    background: #f7f9fa;
+    border: 1px solid #bbbbbb;
+    border-radius: none;
+    margin-bottom: 14px;
+    overflow: hidden;
+    
+}
+
+/* .faq-item:hover {
+    border-color: #4e73b7;
+    
+} */
+
+.faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    padding: 20px 24px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #21263a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+}
+
+.faq-question .faq-num {
+    color: #4e73b7;
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.faq-question .faq-icon {
+    flex-shrink: 0;
+    width: 26px;
+    height: 26px;
+    border-radius: 50%;
+    background: rgba(78, 115, 183, 0.12);
+    color: #4e73b7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: transform 0.25s ease, background 0.25s ease;
+}
+
+.faq-item.active .faq-question .faq-icon {
+    background: #4e73b7;
+    color: white;
+    transform: rotate(45deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    background: #fbfcfd;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 300px;
+}
+
+.faq-answer p {
+    padding: 0 24px 20px 24px;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b4f5c;
+}
+
+.faq-cta {
+    max-width: 800px;
+    margin: 50px auto 0 auto;
+    text-align: center;
+    background: white;
+    border: 1px solid #bbbbbb;
+    border-radius: none;
+    border-bottom: 7px solid #bbbbbb;
+    border-right: 7px solid #bbbbbb;
+    padding: 36px 24px;
+}
+
+.faq-cta h3 {
+    font-size: 1.3rem;
+    color: #21263a;
+    margin-bottom: 10px;
+}
+
+.faq-cta p {
+    color: #4b4f5c;
+    margin-bottom: 22px;
+    font-size: 0.95rem;
+}
+
+.faq-cta a {
+    display: inline-block;
+    background: #4e73b7;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 12px 26px;
+    border-radius: none;
+    border-bottom: 4px solid #3f5f99;
+    border-right: 4px solid #3f5f99;
+    
+}
+
+.faq-cta a:hover {
+    background: #3f5f99;
+    
+}
+
+@media (max-width: 600px) {
+    .faq-hero h1 {
+        font-size: 1.8rem;
+    }
+    .faq-question {
+        font-size: 0.9rem;
+        padding: 16px 18px;
+    }
+}
+
+/* ===== end FAQ page styles ===== */
+
+
+.main-footer {
+    width: 100%;
+    background-color: #4e73b7;
+    color: #ffffff;
+    padding: 60px 20px 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1000px; /* Keeps it matching your main sections */
+    margin: 0 auto;
+}
+
+/* Links Columns Grid */
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Horizontal Divider Line */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Trust Elements / Badges Section */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-badges span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Contact & Copyright Section */
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-contact-text {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-text">
+                    SIOPS soft solutions
+                </div>
+                
+                <div class="search-bar">
+                               <form class="search-hero-bar" action="search-query.html" method="GET">
+            <input type="search" name="q" id="searchHeroInput" placeholder="Search the site...">
+           <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button>
+        </form>
+                    <!-- <input type="search" name="srch" id="search" placeholder=" Search..."> 
+                    <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button> -->
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <a style="color: #161616; text-decoration: none;" href="index.html">Home</a> | <a style="color: #161616; text-decoration: none;" href="faqs.html">FAQs</a> | <a style="color: #161616; text-decoration: none;" href="about.html">About</a> | <a style="color: #161616; text-decoration: none;" href="pricing.html">Pricing</a> | <a style="color: #161616; text-decoration: none;" href="services.html">Services</a> | <a style="color: #161616; text-decoration: none;" href="contact.html">Contact</a> 
+            </div>
+        </nav>
+    </header>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <span class="faq-eyebrow">Got questions?</span>
+        <h1>Frequently Asked Questions</h1>
+        <p>Everything customers usually ask before, during, and after working with a web dev / software agency. Can't find your answer here? Reach out and we'll get back to you directly.</p>
+    </section>
+
+    <!-- FAQ List -->
+    <section class="faq-section">
+        <div class="faq-list" id="faqList">
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">01.</span>How much does a website or software project cost?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Pricing depends on scope, complexity, and timeline. Simple sites start in one range; custom software, integrations, or ongoing platforms cost more. We provide a fixed quote or detailed estimate after understanding your requirements — no vague "it depends" left hanging. Click <a href="pricing.html">here</a> to learn more.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">02.</span>How long does a typical project take?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Standard website development takes between 2–4 weeks to complete depending on the kind of website. Custom software or complex platforms, such as desktop applications or local area networks, can take 2–6 months depending on features. We give you a realistic timeline upfront and flag any risks to that timeline as we go.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">03.</span>Do you build from scratch or use templates?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We tailor the approach to your budget and goals. Some projects benefit from a proven framework or CMS for speed and cost efficiency; others need fully custom code. We'll recommend the right fit and explain why.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">04.</span>Who owns the code and design once the project is done?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You do. Once the project is paid in full, you own the source code, assets, and IP — no lock-in, no licensing fees to keep using what we built.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">05.</span>What technologies do you work with?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We work across common modern stacks (e.g. Node, Python, PHP, C++ etc.) and choose the right tool for your project rather than forcing everything into one framework.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">06.</span>Will my website be mobile-friendly?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes. Every build is responsive by default.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">07.</span>Do you handle hosting and domains?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We can set it up and manage it for you, or hand off deployment instructions if you prefer to host it yourself. Either way, you keep control of your domain and accounts.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">08.</span>What happens after the site or software launches?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We offer ongoing support and maintenance plans for updates, bug fixes, and monitoring. You're never left with something that just stops getting attention after go-live.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">09.</span>How many revisions do I get?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Most projects include a set number of revision rounds at each milestone (design, development, pre-launch). Additional changes outside scope are quoted separately so there are no surprise costs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">10.</span>What if I need changes after the project is delivered?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can request updates anytime — either through a support retainer or as one-off paid work, depending on what you need.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">11.</span>How do we communicate during the project?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>You can either communicate with us during the project through WhatsApp or by emailing us. Contact information is provided <a href="contact.html">here</a>.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">12.</span>Do you sign NDAs or confidentiality agreements?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes, we're happy to sign an NDA before discussing project details if you'd like extra protection for sensitive ideas or data.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">13.</span>What do you need from me to get started?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>A clear idea of your goals, any existing brand assets (logo, colors, content), and access to relevant accounts (domain, hosting) if applicable. We'll guide you through a discovery call to fill in the rest.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">14.</span>How do payments work?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Click <a href="pricing.html">here</a> to see our payment and service terms. Full terms are laid out in the contract before work begins.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">15.</span>Can you work with my existing website or codebase?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>In most cases, yes. We'll audit the existing code first to assess quality and decide whether to build on top of it or recommend a rebuild if the foundation won't support your goals.</p>
+                </div>
+            </div>
+
+            <!-- <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">16.</span>Do you offer SEO and performance optimization?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>Yes — page speed, accessibility, and basic on-page SEO are built into our process by default. Deeper SEO strategy or content work can be scoped as an add-on.</p>
+                </div>
+            </div> -->
+
+            <div class="faq-item">
+                <button class="faq-question">
+                    <span><span class="faq-num">16.</span>What if I'm not happy with the final result?</span>
+                    <span class="faq-icon">+</span>
+                </button>
+                <div class="faq-answer">
+                    <p>We build in feedback checkpoints throughout the project specifically to avoid this. If something's off at delivery, it's addressed within the agreed revision scope before final sign-off and remaining payment.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="faq-cta">
+            <h3>Still have questions?</h3>
+            <p>We're happy to walk you through anything not covered here.</p>
+            <a href="contact.html">Get in touch</a>
+        </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                var item = btn.closest('.faq-item');
+                var wasActive = item.classList.contains('active');
+
+                document.querySelectorAll('.faq-item.active').forEach(function (openItem) {
+                    openItem.classList.remove('active');
+                });
+
+                if (!wasActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+    </script>
+
+    <footer class="main-footer">
+        <div class="footer-inner">
+            
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="tools.html">Open Source Tools</a></li>
+                        <li><a href="services.html">Software Development</a></li>
+                        <li><a href="pricing.html">Service plans</a></li>
+                        <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="footer-col">
+                    <h3>Contact Links</h3>
+                    <ul>
+                        <li><a href="contact.html">Email Us</a></li>
+                        <li><a href="tel:+923464524559">Call Us</a></li>
+                        <li><a href="https://www.x.com/iabdullah2026">Follow Us on X</a></li>
+                        <li><a href="www.linkedin.com/in/abdullah-m-ahmad-19b6ba417">Follow Us on Linkedin</a></li>
+                        <li><a href="https://substack.com/@abdullahahmad342251">Subscribe to Abdullah Ahmad's Substack</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="user-policy.html">User Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="legal.html">Legal Statement</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-badges">
+                <span><img style="width: 200px;" src="dddpp.svg" alt=""></span>
+               
+                <span><img style="width: 150px;" src="visa.svg" alt=""></span>
+                
+                <!-- <span>ESCROW.COM</span> -->
+            </div>
+
+            <div class="footer-bottom">
+              
+                <div class="footer-copyright">
+                    &copy; 2026 SIOPS Soft Solutions. All rights reserved. <br><br>
+                    <h6>Website last updated on July 10th 2026.</h6>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+</html>

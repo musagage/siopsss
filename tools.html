@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIOPS soft solutions</title>
+    <style>
+* {
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The outer bar spans 100% of the screen width */
+.top-bar {
+    width: 100%;
+    background-color: #4e73b7;
+    color: white;
+}
+
+/* Inner container pulls the logo and search bar toward the center */
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 1100px; /* Must match .nav-content to line up */
+    margin: 0 auto;    
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+/* Outer nav spans 100% of the screen width */
+.nav-bar {
+    width: 100%;
+    background-color: #f7f9fa; 
+    border-bottom: 1px solid #bbbbbb; /* Changed to bottom border for a cleaner look */
+}
+
+/* NEW: Inner nav container lines up the links perfectly under the logo */
+.nav-content {
+    width: 100%;
+    max-width: 1100px; /* Must match .top-bar-content to line up */
+    margin: 0 auto;
+    padding: 20px 20px; /* Moved padding here so links align with the logo padding */
+}
+a .nav-content {
+    color: #bbbbbb;
+}
+
+
+.cta-section {
+            text-align: center;
+            padding: 40px;
+            background: transparent;
+            color: black;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-bottom: none;
+        }
+
+
+        .section {
+    background: white;
+    padding: 30px;
+    margin: 40px auto; /* NEW: First number is top/bottom margin, 'auto' centers it horizontally */
+    width: 100%;       /* NEW: Makes it responsive */
+    max-width: 1000px; /* NEW: Prevents it from getting wider than 1000px */
+}
+
+.section h2 {
+    color: #313131;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: #313131;
+    font-size: 1.4rem;
+    margin: 25px 0 15px 0;
+}
+
+.section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6; /* Optional: Adds a bit of breathing room to the legal text */
+}
+
+
+ .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+
+        .benefit-card {
+            background: #f7f9fa;
+            padding: 20px;
+            border-radius: none;
+            border: 1px solid #bbbbbb;
+        
+        }
+
+
+        .main-footer {
+    width: 100%;
+    background-color: #4e73b7;
+    color: #ffffff;
+    padding: 60px 20px 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1000px; /* Keeps it matching your main sections */
+    margin: 0 auto;
+}
+
+/* Links Columns Grid */
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Horizontal Divider Line */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Trust Elements / Badges Section */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-badges span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Contact & Copyright Section */
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-contact-text {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-text">
+                    SIOPS soft solutions
+                </div>
+                
+                <div class="search-bar">
+                               <form class="search-hero-bar" action="search-query.html" method="GET">
+            <input type="search" name="q" id="searchHeroInput" placeholder="Search the site...">
+           <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button>
+        </form>
+                    <!-- <input type="search" name="srch" id="search" placeholder=" Search..."> 
+                    <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button> -->
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <a style="color: #161616; text-decoration: none;" href="index.html">Home</a> | <a style="color: #161616; text-decoration: none;" href="faqs.html">FAQs</a> | <a style="color: #161616; text-decoration: none;" href="about.html">About</a> | <a style="color: #161616; text-decoration: none;" href="pricing.html">Pricing</a> | <a style="color: #161616; text-decoration: none;" href="services.html">Services</a> | <a style="color: #161616; text-decoration: none;" href="contact.html">Contact</a> 
+            </div>
+        </nav>
+    </header>
+
+ <section class="section">
+                      <h2>Tools</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <h4><a href="https://gitlab.com/groupz8894907/paranet-lite/-/tree/f99209fb8b7670f626bd1de2afa414dc6a532230/">Paranet Lite</a></h4>
+                  <p>Paranet Lite is a lighter version of Paranet (a proprietary software application) that allows users to upload and share their video or image files over LAN with others via IP sharing or Ethernet. It's a locally hosted mini-social application.</p>
+                  </div>
+                
+                <div class="benefit-card">
+                    <h4><a href="https://gitlab.com/groupz8894907/boulder/-/tree/7fa4006f7c183b7a57fd6710f70063e0dcf0375c/">Boulder</a></h4>
+                  <p>Boulder is a desktop application designed to explain coding snippets or program files through auto-enabled commenting system. Essentially, it provides with a generic code summary by commenting which section of code explains what, without an attempt to alter or modify program details. It's good if you're starting out with programming, it allows you to "learn and code" instead of running "vibe coding sessions 101".</p>
+                  </div>
+                
+                <div class="benefit-card">
+                    <h4><a href="https://gitlab.com/groupz8894907/tts-stt/-/tree/9242efb70971aa92cb621c5f9f3d8bba05138fb1/">Text-to-Speech/Speech-to-Text Converter</a></h4>
+                  <p>TTS/STT converter is a basic interactive desktop application that allows users to convert text to simple speech or convert speech to text. It's for moderate use cases, but savvy users can always enable extra features, including ML/DL to make speech more responsive and conversational.</p>
+                  </div>
+                
+                <div class="benefit-card">
+                    <h4><a href="https://gitlab.com/groupz8894907/software-dispatch-network/-/tree/29a5cbc27d03b13df968909a9fd7cc967cf067fa/">Software Dispatch Network</a></h4>
+                  <p>Software Dispatch Network is a web based application that allows users to share any software with other users. It can be accessed locally or deployed globally via cloud. In essence, SDN is much of a "hub" for any software that users can upload and download. </p>
+                  </div>
+
+
+                    <div class="benefit-card">
+                    <h4><a href="https://gitlab.com/musakhanaa828/redtooth/-/tree/27465150a9d0785126c8c49d8cdddeb8c3ec5e10/">Redtooth DEMO</a></h4>
+                        <p>Redtooth DEMO is an open-beta software under Project Equilibrium designed to challenge traditional data transfer protocols. It enables completely offline, wireless data transmission over distances exceeding 1,000 km without relying on the internet, cables, or fiber optics.</p>
+                </div>
+                
+                <!-- <div class="benefit-card">
+                    <h4>Accessibility & Innovation</h4>
+                    <p>Software makes technology inclusive for people with disabilities (e.g., screen readers) and fuels innovation in fields like AI and VR.</p>
+                </div> -->
+            </div>
+            
+        </section>
+
+        <section class="cta-section">
+            
+            <p style="margin-bottom: 40px;">The above tools are distributed from SIOPS Soft Solitions to end users.<br> We opt for an open source approach allowing users to freely access our curated tools for their use to bolster their productivity.<br> Users are free to use these applications in any way they desire to. <br>Any legal serious implications (such as infringement cases, IP theft or other lawsuits) that arise <br> due to modifications of the above provided tools/software from SIOPS Soft Solutions, <br>can not accuse SIOPS Soft Solutions liable for those legal implications. The liablity for any/all alterations explicitly belong to the end user. </p>
+            <a style="margin-right: 10px; color: #074ac5; " href="index.html" class="back-link">&larr; Back to Home</a>
+             <a style="color: #074ac5;" href="services.html" class="back-link">Click here to view our services</a>
+        </section>
+
+        
+        <footer class="main-footer">
+        <div class="footer-inner">
+            
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h3>Useful Links</h3>
+                    <ul>
+                          <li><a href="tools.html">Open Source Tools</a></li>
+                        <li><a href="services.html">Software Development</a></li>
+                        <li><a href="pricing.html">Service plans</a></li>
+                        <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="footer-col">
+                    <h3>Contact Links</h3>
+                    <ul>
+                        <li><a href="contact.html">Email Us</a></li>
+                        <li><a href="tel:+923464524559">Call Us</a></li>
+                        <li><a href="https://www.x.com/iabdullah2026">Follow Us on X</a></li>
+                        <li><a href="www.linkedin.com/in/abdullah-m-ahmad-19b6ba417">Follow Us on Linkedin</a></li>
+                        <li><a href="https://substack.com/@abdullahahmad342251">Subscribe to Abdullah Ahmad's Substack</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="user-policy.html">User Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="legal.html">Legal Statement</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-badges">
+                <span><img style="width: 200px;" src="dddpp.svg" alt=""></span>
+               
+                <span><img style="width: 150px;" src="visa.svg" alt=""></span>
+                
+                <!-- <span>ESCROW.COM</span> -->
+            </div>
+
+            <div class="footer-bottom">
+              
+                <div class="footer-copyright">
+                    &copy; 2026 SIOPS Soft Solutions. All rights reserved. <br><br>
+                    <h6>Website last updated on July 10th 2026.</h6>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>

@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIOPS soft solutions</title>
+    <style>
+* {
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The outer bar spans 100% of the screen width */
+.top-bar {
+    width: 100%;
+    background-color: #4e73b7;
+    color: white;
+}
+
+/* Inner container pulls the logo and search bar toward the center */
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 1100px; /* Must match .nav-content to line up */
+    margin: 0 auto;    
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+/* Outer nav spans 100% of the screen width */
+.nav-bar {
+    width: 100%;
+    background-color: #f7f9fa; 
+    border-bottom: 1px solid #bbbbbb; /* Changed to bottom border for a cleaner look */
+}
+
+/* NEW: Inner nav container lines up the links perfectly under the logo */
+.nav-content {
+    width: 100%;
+    max-width: 1100px; /* Must match .top-bar-content to line up */
+    margin: 0 auto;
+    padding: 20px 20px; /* Moved padding here so links align with the logo padding */
+}
+a .nav-content {
+    color: #bbbbbb;
+}
+
+
+.cta-section {
+            text-align: center;
+            padding: 40px;
+            background: transparent;
+            color: black;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-bottom: none;
+        }
+
+
+        .section {
+    background: white;
+    padding: 30px;
+    margin: 40px auto; /* NEW: First number is top/bottom margin, 'auto' centers it horizontally */
+    width: 100%;       /* NEW: Makes it responsive */
+    max-width: 1000px; /* NEW: Prevents it from getting wider than 1000px */
+}
+
+.section h2 {
+    color: #313131;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: #313131;
+    font-size: 1.4rem;
+    margin: 25px 0 15px 0;
+}
+
+.section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6; /* Optional: Adds a bit of breathing room to the legal text */
+}
+
+
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+
+        .pricing-card {
+            background: #f7f9fa;
+            border: 2px solid #bbbbbb;
+            border-radius: none;
+            padding: 25px;
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pricing-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            /* background: linear-gradient(135deg, #313131 0%, #918c97 100%); */
+        }
+
+     
+
+        .pricing-card h3 {
+            font-size: 1.5rem;
+            color: #313131;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #bbbbbb;
+            margin: 20px 0;
+        }
+
+        .price .currency {
+            font-size: 1.2rem;
+            vertical-align: super;
+        }
+
+        .features {
+            list-style: none;
+            margin: 20px 0;
+            text-align: left;
+        }
+
+        .features li {
+            padding: 8px 0;
+            border-bottom: 1px solid #bbbbbb;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #28a745;
+            font-weight: bold;
+        }
+
+        .domain-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border-color: #ffc107;
+        }
+
+        .highlight::before {
+            background: linear-gradient(135deg, #ffc107 0%, #ff9800 100%);
+        }
+
+        .enterprise-note {
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        .info-section {
+            /* background: linear-gradient(135deg, #e8f4f8 0%, #d1e7dd 100%); */
+            /* border-left: 4px solid #313131; */
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: none;
+        }
+
+        .info-section h3 {
+            color: #313131;
+            margin-bottom: 15px;
+        }
+
+        .info-section p, .info-section ul {
+            margin-bottom: 10px;
+        }
+
+        .info-section ul {
+            margin-left: 20px;
+        }
+
+        .info-section li {
+            margin-bottom: 8px;
+        }
+
+        .disclaimer {
+            background: linear-gradient(135deg, #f8d7da 0%, #f5c6cb 100%);
+            border-bottom: 7px solid #dc3545;
+             border-right: 7px solid #dc3545;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: none;
+        }
+
+        .disclaimer h3 {
+            color: #721c24;
+            margin-bottom: 15px;
+        }
+
+        .disclaimer p {
+            color: #721c24;
+            margin-bottom: 10px;
+        }
+
+        .main-footer {
+    width: 100%;
+    background-color: #4e73b7;
+    color: #ffffff;
+    padding: 60px 20px 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1000px; /* Keeps it matching your main sections */
+    margin: 0 auto;
+}
+
+/* Links Columns Grid */
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Horizontal Divider Line */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Trust Elements / Badges Section */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-badges span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Contact & Copyright Section */
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-contact-text {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+    
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-text">
+                    SIOPS soft solutions
+                </div>
+                
+                <div class="search-bar">
+                               <form class="search-hero-bar" action="search-query.html" method="GET">
+            <input type="search" name="q" id="searchHeroInput" placeholder="Search the site...">
+           <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button>
+        </form>
+                    <!-- <input type="search" name="srch" id="search" placeholder=" Search..."> 
+                    <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button> -->
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <a style="color: #161616; text-decoration: none;" href="index.html">Home</a> | <a style="color: #161616; text-decoration: none;" href="faqs.html">FAQs</a> | <a style="color: #161616; text-decoration: none;" href="about.html">About</a> | <a style="color: #161616; text-decoration: none;" href="pricing.html">Pricing</a> | <a style="color: #161616; text-decoration: none;" href="services.html">Services</a> | <a style="color: #161616; text-decoration: none;" href="contact.html">Contact</a> 
+            </div>
+        </nav>
+    </header>
+<!-- Frontend Web Packages -->
+        <section class="section">
+            <h2>Frontend Web Packages</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Individual Plan</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>8,000
+                    </div>
+                    <ul class="features">
+                        <li>Up to 7 webpages</li>
+                        <li>Fully customizable pages</li>
+                        <li>Frontend only</li>
+                    </ul>
+                    <p class="domain-note">Without domain registration</p>
+                    <div class="price">
+                        <span class="currency">PKR</span>10,000
+                    </div>
+                    <p class="domain-note">With domain registration</p>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Startup Plan</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>12,000
+                    </div>
+                    <ul class="features">
+                        <li>Up to 15 webpages</li>
+                        <li>Fully customizable pages</li>
+                        <li>Frontend only</li>
+                    </ul>
+                    <p class="domain-note">Without domain registration</p>
+                    <div class="price">
+                        <span class="currency">PKR</span>15,000
+                    </div>
+                    <p class="domain-note">With domain registration</p>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Season Plan</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>20,000
+                    </div>
+                    <ul class="features">
+                        <li>Up to 30 webpages</li>
+                        <li>Fully customizable pages</li>
+                        <li>Enabled CSS animations</li>
+                        <li>Non-custom plugins</li>
+                        <li>Frontend only</li>
+                    </ul>
+                    <p class="domain-note">Includes domain registration</p>
+                </div>
+
+                <div class="pricing-card highlight">
+                    <h3>Enterprise Plan</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>49,000+
+                    </div>
+                    <ul class="features">
+                        <li>30+ pages</li>
+                        <li>Fully customizable pages</li>
+                        <li>Enabled CSS animations</li>
+                        <li>Native CRM software (non-custom)</li>
+                        <li>Custom plugins</li>
+                        <li>Full-stack development</li>
+                    </ul>
+                    <p class="enterprise-note">Price starts from PKR 49,000 and varies based on requirements</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- LMS Packages -->
+        <section class="section">
+            <h2>Learning Management System (LMS)</h2>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <h3>Tier 1 LMS</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>30,000
+                    </div>
+                    <ul class="features">
+                        <li>Static/semi-dynamic course pages</li>
+                        <li>Lesson content (text + embedded video)</li>
+                        <li>Basic user registration & login</li>
+                        <li>Student dashboard</li>
+                        <li>Manual enrollment (admin adds users)</li>
+                        <li>Course categories</li>
+                        <li>Basic CMS controls</li>
+                        <li>Mobile-responsive design</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card">
+                    <h3>Tier 2 LMS</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>60,000
+                    </div>
+                    <ul class="features">
+                        <li>Static/semi-dynamic course pages</li>
+                        <li>Lesson content (text + embedded video)</li>
+                        <li>Developed user registration & login</li>
+                        <li>Student dashboard</li>
+                        <li>Manual/auto enrollment</li>
+                        <li>Course categories</li>
+                        <li>Enhanced CMS controls</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Structured courses (modules → lessons)</li>
+                        <li>Basic progress tracking</li>
+                        <li>Quizzes/MCQs/basic exams</li>
+                        <li>Pass/fail logic</li>
+                        <li>Student & instructor roles</li>
+                        <li>Basic reports (completion, scores)</li>
+                        <li>Content drip (unlock lessons over time)</li>
+                    </ul>
+                </div>
+
+                <div class="pricing-card highlight">
+                    <h3>Tier 3 LMS</h3>
+                    <div class="price">
+                        <span class="currency">PKR</span>110,000
+                    </div>
+                    <ul class="features">
+                        <li>Dynamic course pages</li>
+                        <li>Lesson content (text + embedded video)</li>
+                        <li>Developed user registration & login</li>
+                        <li>Customizable student dashboard</li>
+                        <li>Manual/auto enrollment</li>
+                        <li>Course categories</li>
+                        <li>Enhanced CMS controls</li>
+                        <li>Mobile-responsive design</li>
+                        <li>Structured courses (modules → lessons)</li>
+                        <li>Enhanced progress tracking</li>
+                        <li>Quizzes/MCQs/basic exams</li>
+                        <li>Pass/fail logic</li>
+                        <li>Student & instructor roles</li>
+                        <li>Nuanced reports</li>
+                        <li>Content drip (unlock lessons over time)</li>
+                        <li>Payment gateway integration</li>
+                        <li>Live classes (native video call integration)</li>
+                        <li>CRM access for staff/admins</li>
+                        <li>Security hardening</li>
+                        <li>Admin audit logs</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Other Services -->
+       
+           
+            
+            <div class="info-section">
+               <section class="section">
+             <h2>Progressive Web Applications, Desktop Applications and Local Area Networks</h2>
+           <p>
+We offer Desktop Applications and Progressive Web Apps, starting from PKR 15,000. Our services include the development of custom desktop applications, progressive web applications (PWAs), and local area network solutions, all fully customizable to your specific needs. Deliverables are provided as extractable files (ZIP/RAR), along with installation and setup instructions. 
+           </p>
+<p>For more information on Desktop Applications, LANs and Progressive Web Apps, click <a href="services.html">here</a>.</p>
+         
+        </section>
+            </div>
+
+
+ <div class="info-section">
+               <section class="section">
+                 <h2>Programming Language Translations</h2>
+           <p>
+We offer program translation services starting from PKR 5,000, converting programs between different programming languages while preserving their core logic and functionality. We support a range of languages, including Python, C++, JavaScript, Dart, PHP, and Rust. For more information on programming language translations, click <a href="services.html">here</a>.
+           </p>         
+        </section>
+            </div>
+
+
+<!-- Payment & Policy Information -->
+        <section class="section">
+            <h2>Payment & Service Terms</h2>
+            
+            <div class="info-section">
+                <h3>Payment Structure</h3>
+                <ul>
+                    <li><strong>15% upfront payment</strong> required to begin work</li>
+                    <li><strong>One-time payment only</strong> - no subscriptions or recurring charges</li>
+                    <li><strong>Remaining payment</strong> due upon client satisfaction and delivery</li>
+<li><strong>Payment method</strong> - For payments client can pay via Easypaisa or Sadapay online payment services. <br>Clients shall send to the following IBAN address: <br> <b>PK58TMFB0000000086656668</b> (EasyPaisa) or <b>PK55SADA0000003464524559</b> (Sadapay). <br> For payments via bank transfer clients shall send to the following IBAN address: <br> <b>PKABPA0010163795650016</b> (Allied Bank) </li>
+                </ul>
+            </div>
+            
+
+            <div class="disclaimer">
+                <h3>Important Notice</h3>
+                <p>We do not hold liability for damage or corruption after source code has been delivered and paid for. Any changes or damage to the source code will be the customer's responsibility.</p>
+                <p>We do not sell proprietary software nor keep any source code/material for projects delivered to clients. Everything we do ensures complete transparency.</p>
+                <p>Please see our <a href="user-policy.html">User Policy</a> and <a href="privacy.html">Privacy Policy</a> for more detailed information.</p>
+                <p>Final pricing related to PWAs, Desktop Apps, LANs and Programming language translations depends on the complexity of the project and client specific requirements, so please <a href="contact.html">contact</a> us for a detailed quote.</p>
+               
+            </div>
+        </section>
+       
+
+
+        <section class="cta-section">
+            
+            <!-- <p style="margin-bottom: 40px;">Let us help you overcome technological hurdles and achieve your goals with innovative software solutions.</p> -->
+            <a style="margin-right: 10px; color: #074ac5; " href="index.html" class="back-link">&larr; Back to Home</a>
+             <a style="color: #074ac5;" href="services.html" class="back-link">Click here to see all services</a>
+        </section>
+
+       
+<footer class="main-footer">
+        <div class="footer-inner">
+            
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h3>Useful Links</h3>
+                    <ul>
+                         <li><a href="tools.html">Open Source Tools</a></li>
+                        <li><a href="services.html">Software Development</a></li>
+                        <li><a href="pricing.html">Service plans</a></li>
+                        <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="footer-col">
+                    <h3>Contact Links</h3>
+                    <ul>
+                        <li><a href="contact.html">Email Us</a></li>
+                        <li><a href="tel:+923464524559">Call Us</a></li>
+                        <li><a href="https://www.x.com/iabdullah2026">Follow Us on X</a></li>
+                        <li><a href="www.linkedin.com/in/abdullah-m-ahmad-19b6ba417">Follow Us on Linkedin</a></li>
+                        <li><a href="https://substack.com/@abdullahahmad342251">Subscribe to Abdullah Ahmad's Substack</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="user-policy.html">User Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="legal.html">Legal Statement</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-badges">
+                <span><img style="width: 200px;" src="dddpp.svg" alt=""></span>
+               
+                <span><img style="width: 150px;" src="visa.svg" alt=""></span>
+                
+                
+            </div>
+
+            <div class="footer-bottom">
+              
+                <div class="footer-copyright">
+                    &copy; 2026 SIOPS Soft Solutions. All rights reserved. <br><br>
+                    <h6>Website last updated on July 10th 2026.</h6>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+</html>

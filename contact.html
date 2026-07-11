@@ -1,0 +1,535 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIOPS soft solutions</title>
+    <style>
+* {
+    font-family: Tahoma, sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* The outer bar spans 100% of the screen width */
+.top-bar {
+    width: 100%;
+    background-color: #4e73b7;
+    color: white;
+}
+
+/* Inner container pulls the logo and search bar toward the center */
+.top-bar-content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px 20px;
+    width: 100%;
+    max-width: 1100px; /* Must match .nav-content to line up */
+    margin: 0 auto;    
+}
+
+.logo-text {
+    font-weight: bold;
+    font-size: 1.8rem;
+}
+
+.search-bar {
+    display: flex;
+    gap: 8px;
+}
+
+/* Outer nav spans 100% of the screen width */
+.nav-bar {
+    width: 100%;
+    background-color: #f7f9fa; 
+    border-bottom: 1px solid #bbbbbb; /* Changed to bottom border for a cleaner look */
+}
+
+/* NEW: Inner nav container lines up the links perfectly under the logo */
+.nav-content {
+    width: 100%;
+    max-width: 1100px; /* Must match .top-bar-content to line up */
+    margin: 0 auto;
+    padding: 20px 20px; /* Moved padding here so links align with the logo padding */
+}
+a .nav-content {
+    color: #bbbbbb;
+}
+
+
+.cta-section {
+            text-align: center;
+            padding: 40px;
+            background: transparent;
+            color: black;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: white;
+            border-bottom: none;
+        }
+
+
+        .section {
+    background: white;
+    padding: 30px;
+    margin: 40px auto; /* NEW: First number is top/bottom margin, 'auto' centers it horizontally */
+    width: 100%;       /* NEW: Makes it responsive */
+    max-width: 1000px; /* NEW: Prevents it from getting wider than 1000px */
+}
+
+.section h2 {
+    color: #313131;
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.section h3 {
+    color: #313131;
+    font-size: 1.4rem;
+    margin: 25px 0 15px 0;
+}
+
+.section p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    line-height: 1.6; /* Optional: Adds a bit of breathing room to the legal text */
+}
+
+
+
+
+.section {
+            background: white;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+        }
+
+        .section h2 {
+            color: #313131;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+        }
+
+        .section h3 {
+            color: #313131;
+            font-size: 1.4rem;
+            margin: 25px 0 15px 0;
+        }
+
+        .section p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .contact-card {
+            background: #f7f9fa;
+            padding: 30px;
+            border-radius: none;
+            border: 1px solid #bbbbbb;
+            text-align: center;
+            
+        }
+
+        /* .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+        } */
+
+        .contact-card h3 {
+            color: #313131;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .contact-card .email {
+            font-size: 1.1rem;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-card .email:hover {
+            color: #0056b3;
+            text-decoration: underline;
+        }
+
+        .contact-card .whatsapp {
+            font-size: 1.1rem;
+            color: #25D366;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .contact-card .whatsapp:hover {
+            color: #128C7E;
+            text-decoration: underline;
+        }
+
+        .contact-card .phone {
+            font-size: 1.1rem;
+            color: #28a745;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .contact-card .phone:hover {
+            color: #1e7e34;
+            text-decoration: underline;
+        }
+
+        .whatsapp-logo {
+            width: 30px;
+            height: 30px;
+            background: transparent;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .whatsapp-icon {
+            width: 30px;
+            height: 30px;
+            object-fit: contain;
+        }
+
+        .contact-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #313131 0%, #918c97 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 24px;
+            color: white;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .cta-section {
+            text-align: center;
+            padding: 40px;
+            background: transparent;
+            color: black;
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .cta-section h2 {
+            color: black;
+            border-bottom: none;
+        }
+
+
+
+         .main-footer {
+    width: 100%;
+    background-color: #4e73b7;
+    color: #ffffff;
+    padding: 60px 20px 40px 20px;
+    margin-top: 60px;
+}
+
+.footer-inner {
+    width: 100%;
+    max-width: 1000px; /* Keeps it matching your main sections */
+    margin: 0 auto;
+}
+
+/* Links Columns Grid */
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #ffffff;
+}
+
+.footer-col ul {
+    list-style: none;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+    color: #e2e8f0;
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+/* Horizontal Divider Line */
+.footer-divider {
+    border: 0;
+    height: 1px;
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-bottom: 30px;
+}
+
+/* Trust Elements / Badges Section */
+.footer-badges {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-badges span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    opacity: 0.85;
+    letter-spacing: 0.5px;
+}
+
+/* Contact & Copyright Section */
+.footer-bottom {
+    text-align: center;
+}
+
+.footer-contact-text {
+    font-size: 1.3rem;
+    font-weight: normal;
+    margin-bottom: 12px;
+}
+
+.footer-copyright {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+    </style>
+</head>
+<body>
+    <header>
+        <div class="top-bar">
+            <div class="top-bar-content">
+                <div class="logo-text">
+                    SIOPS soft solutions
+                </div>
+                
+                <div class="search-bar">
+                               <form class="search-hero-bar" action="search-query.html" method="GET">
+            <input type="search" name="q" id="searchHeroInput" placeholder="Search the site...">
+           <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button>
+        </form>
+                    <!-- <input type="search" name="srch" id="search" placeholder=" Search..."> 
+                    <button style="padding: 4px 5px; border-radius: 0; border-color: #bbbbbb;" type="submit">Search</button> -->
+                </div>
+            </div>
+        </div>
+
+        <nav class="nav-bar">
+            <div class="nav-content">
+                <a style="color: #161616; text-decoration: none;" href="index.html">Home</a> | <a style="color: #161616; text-decoration: none;" href="faqs.html">FAQs</a> | <a style="color: #161616; text-decoration: none;" href="about.html">About</a> | <a style="color: #161616; text-decoration: none;" href="pricing.html">Pricing</a> | <a style="color: #161616; text-decoration: none;" href="services.html">Services</a> | <a style="color: #161616; text-decoration: none;" href="contact.html">Contact</a> 
+            </div>
+        </nav>
+    </header>
+
+ <!-- <section class="section">
+            <h2>Legal</h2>
+            <p>
+              SIOPS Soft Solutions distributes and develops software solutions, including certain open-source tools and components, in good faith and for lawful purposes only. Any open-source software, frameworks, or tools provided by  SIOPS Soft Solutions are supplied “as is” and subject to their respective open-source licenses. While SIOPS Soft Solutions may customize, configure, or deploy such tools for clients, any subsequent modification, alteration, redistribution, repurposing, or misuse of such software by the end user or any third party shall be solely the responsibility of the end user. SIOPS Soft Solutions shall not be held liable, directly or indirectly, for any claims, damages, losses, legal proceedings, penalties, or liabilities arising out of or related to modifications or uses of the software beyond its originally delivered and intended lawful purpose.
+            </p>
+            <p>
+              SIOPS Soft Solutions expressly prohibits and does not design, develop, produce, distribute, or facilitate any software, system, platform, or website that contributes to or enables fraudulent activities, impersonation, identity misrepresentation, hacking, unauthorized system access, unlawful surveillance, data harvesting without consent, or any form of cybercrime. SIOPS Soft Solutions further does not engage in the creation or facilitation of systems intended to support personal vendettas, harassment, defamation, or targeted harm against any individual or entity. Additionally, SIOPS Soft Solutions does not develop, host, or distribute software or platforms intended for the production, facilitation, or distribution of erotic content, unlawful materials, or any activity that violates applicable local, national, or international laws.
+            </p>
+            <p>
+              Although SIOPS Soft Solutions produces lawful, compliant, and authentic software solutions and may provide source code to clients as part of its contractual obligations, any alterations, customizations, integrations, or deployments performed by the client or third parties after delivery that result in unlawful conduct, regulatory violations, misuse, or harm shall be the sole responsibility of the client. Under no circumstances shall SIOPS Soft Solutions be responsible for legal consequences, claims, or damages resulting from client-initiated modifications or uses that deviate from the originally intended lawful scope of the software.
+
+The client agrees to indemnify, defend, and hold harmless SIOPS Soft Solutions, its officers, directors, employees, contractors, and affiliates from and against any and all claims, actions, liabilities, losses, damages, penalties, costs, and expenses (including reasonable legal fees) arising out of or relating to the client’s modification, misuse, unlawful deployment, or redistribution of the software.
+            </p>
+            
+        </section>
+
+        <section class="cta-section">
+            
+            <p style="margin-bottom: 40px;">Let us help you overcome technological hurdles and achieve your goals with innovative software solutions.</p> -->
+            <!-- <a style="margin-right: 10px; color: #074ac5; " href="index.html" class="back-link">&larr; Back to Home</a>
+             <a style="color: #074ac5;" href="about.html" class="back-link">Click here to know more about us</a>
+        </section> -->
+
+
+
+
+
+        <div class="container">
+        <!-- <header>
+            <h1>Contact SIOPS Soft Solutions</h1>
+            <p>Get in touch with us for your software development needs</p>
+        </header> -->
+
+        <section class="section">
+            <h2>Get In Touch</h2>
+            <p>We're here to help you with your software development needs. Whether you have questions about our services, want to discuss a project, or need support, feel free to reach out to us using the contact information below.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-card">
+                    
+                    <h3>Primary Contact</h3>
+                    <p>For general inquiries and project discussions</p>
+                    <div class="contact-links">
+                        <a href="mailto:abdullahmahmad96@gmail.com" class="email">abdullahmahmad96@gmail.com</a>
+                        
+                        <a href="tel:+923464524559" class="phone">
+                            <span class="whatsapp-logo"><img src="wa.png" alt="WhatsApp" class="whatsapp-icon"></span>
+                            +92 346 4524559
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                   
+                    <h3>Secondary Contact</h3>
+                    <p>For technical support and additional inquiries</p>
+                    <div class="contact-links">
+                        <a href="mailto:tedmarvo@yahoo.com" class="email">tedmarvo@yahoo.com</a>
+                        <a href="tel:+923155078681" class="phone">
+                            <span class="whatsapp-logo"><img src="wa.png" alt="WhatsApp" class="whatsapp-icon"></span>
+                            +92 315 5078681
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+              <div class="contact-card">
+             <div class="contact-links">
+              <p><strong>Complaints</strong></p>
+            <p >
+                Clients with complaints regarding our services, tools, coordination or refunds are <br>encouraged to submit their message(s) at <a href="mailto:abdullahmahmad97@gmail.com" class="email">abdullahmahmad97@gmail.com</a><br>We will try to get in contact as soon as we receive any complaint.
+            </p>
+          </div>
+         </div>
+        </section>
+
+        <section class="section">
+            <!-- <h2>Response Time</h2> -->
+            <p>We strive to respond to all inquiries within 24-48 hours during business days.</p>
+            
+            <p><strong>Business Hours</strong></p>
+            <p>Monday - Friday: 9:00 AM - 12:00 AM (PKT)<br>
+            Saturday: 10:00 AM - 12:00 AM (PKT)<br>
+            Sunday: Closed</p>
+
+       
+        </section>
+
+        <section class="cta-section">
+            <h2>Ready to Start Your Project?</h2>
+            <p style="margin-bottom: 40px;">Contact us today to discuss how we can help bring your software ideas to life with our comprehensive development solutions.</p>
+            <a style="margin-right: 10px; color: #074ac5;" href="index.html" class="back-link">&larr; Back to Home</a>
+            <a style="color: #074ac5;" href="services.html" class="back-link">View Our Services</a>
+        </section>
+    </div>
+
+    <footer class="main-footer">
+        <div class="footer-inner">
+            
+            <div class="footer-links-grid">
+                <div class="footer-col">
+                    <h3>Useful Links</h3>
+                    <ul>
+                        <li><a href="tools.html">Open Source Tools</a></li>
+                        <li><a href="services.html">Software Development</a></li>
+                        <li><a href="pricing.html">Service plans</a></li>
+                        <!-- <li><a href="testimonials.html">Testimonials</a></li> -->
+                        <li><a href="faqs.html">FAQs</a></li>
+                    </ul>
+                </div>
+                
+                
+                
+                <div class="footer-col">
+                    <h3>Contact Links</h3>
+                    <ul>
+                        <li><a href="contact.html">Email Us</a></li>
+                        <li><a href="tel:+923464524559">Call Us</a></li>
+                        <li><a href="https://www.x.com/iabdullah2026">Follow Us on X</a></li>
+                        <li><a href="www.linkedin.com/in/abdullah-m-ahmad-19b6ba417">Follow Us on Linkedin</a></li>
+                        <li><a href="https://substack.com/@abdullahahmad342251">Subscribe to Abdullah Ahmad's Substack</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Policies</h3>
+                    <ul>
+                        <li><a href="user-policy.html">User Policy</a></li>
+                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="legal.html">Legal Statement</a></li>
+                       
+                    </ul>
+                </div>
+            </div>
+
+            <hr class="footer-divider">
+
+            <div class="footer-badges">
+                <span><img style="width: 200px;" src="dddpp.svg" alt=""></span>
+               
+                <span><img style="width: 150px;" src="visa.svg" alt=""></span>
+                
+                <!-- <span>ESCROW.COM</span> -->
+            </div>
+
+            <div class="footer-bottom">
+              
+                <div class="footer-copyright">
+                    &copy; 2026 SIOPS Soft Solutions. All rights reserved. <br><br>
+                    <h6>Website last updated on July 10th 2026.</h6>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+</body>
+</html>
